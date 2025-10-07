@@ -1204,6 +1204,10 @@
       <HintPath>Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.XR.CoreUtils">
       <HintPath>Library/ScriptAssemblies/Unity.XR.CoreUtils.dll</HintPath>
       <Private>False</Private>
