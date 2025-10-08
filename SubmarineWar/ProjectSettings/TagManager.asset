@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Anchor
+  - EnemyShip
+  - FieldEdge
   layers:
   - Default
   - TransparentFX

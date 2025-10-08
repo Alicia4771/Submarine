@@ -6,11 +6,14 @@ public class EnemyMove : MonoBehaviour
 
     private Vector3 direction;  // 方向単位ベクトル
 
+    [SerializeField, Tooltip("最初に進む方向（設定したら）（デバッグ用）")]
+    private Vector3 first_dir;
+
     [SerializeField, Tooltip("船が進む速度")]
-    private float speed = 5;
+    private float speed;
 
     [SerializeField, Tooltip("魚雷が進む速度")]
-    private float torpedo_speed = 10;
+    private float torpedo_speed;
 
     private float detection_radius = 200.0f; // 敵が潜水艦を感知する半径
 
@@ -32,6 +35,11 @@ public class EnemyMove : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         direction = SetDirection();
+
+        if (first_dir != null && !(first_dir.x == 0 && first_dir.y == 0 && first_dir.z == 0))
+        {
+            direction = first_dir;
+        }
 
         discovery_point = 0;
     }
@@ -63,6 +71,14 @@ public class EnemyMove : MonoBehaviour
             Vector3 torpedo_direction = (submarine_pos - ship_pos).normalized;
 
             Launch_Torpedo(torpedo_direction * torpedo_speed);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyShip") || collision.gameObject.CompareTag("FieldEdge"))
+        {
+            direction = SetDirection();
         }
     }
 
