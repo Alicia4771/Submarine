@@ -70,10 +70,10 @@
     <Compile Include="Assets/Scripts/DataManager.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/BezierCurve.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/LaunchProjectile.cs" />
+    <Compile Include="Assets/Scripts/EnemyMove.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/HandSubsystemManager.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/DestroyObject.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/VideoTimeScrubControl.cs" />
-    <Compile Include="Assets/Scripts/Enemy Move.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/Callout.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/CalloutGazeController.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/StepManager.cs" />
@@ -620,14 +620,6 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
       <HintPath>Library/PackageCache/com.unity.collections@d49facba0036/Unity.Collections.Tests/System.Runtime.CompilerServices.Unsafe/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Android.Types">
-      <HintPath>/Users/k24039kk/Documents/Unity_edi/6000.2.6f2/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.Android.Gradle">
-      <HintPath>/Users/k24039kk/Documents/Unity_edi/6000.2.6f2/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">

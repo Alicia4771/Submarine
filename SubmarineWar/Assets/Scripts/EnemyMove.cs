@@ -9,6 +9,9 @@ public class EnemyMove : MonoBehaviour
     [SerializeField, Tooltip("船が進む速度")]
     private float speed = 5;
 
+    [SerializeField, Tooltip("魚雷が進む速度")]
+    private float torpedo_speed = 10;
+
     private float detection_radius = 200.0f; // 敵が潜水艦を感知する半径
 
     private float discovery_point;
@@ -16,10 +19,10 @@ public class EnemyMove : MonoBehaviour
     private float torpedo_launch_point = 200.0f; // 魚雷を発射するのに必要な発見ポイント
 
     [SerializeField, Tooltip("速度調整用")]
-    private float speed_adjustment;
+    private float speed_adjustment = 1;
     
     [SerializeField, Tooltip("深度調整用")]
-    private float depth_adjustment;
+    private float depth_adjustment = 1;
 
     // [SerializeField, Tooltip("潜望鏡が上がっているときの加点")]
     private float scope_point = 50.0f; // 潜望鏡が上がっているときの加点
@@ -48,7 +51,7 @@ public class EnemyMove : MonoBehaviour
         float distance = Mathf.Sqrt(Mathf.Pow(ship_pos.x - submarine_pos.x, 2) + Mathf.Pow(ship_pos.z - submarine_pos.z, 2));
 
         discovery_point = 0;
-        discovery_point += -(1 / 2) * distance + detection_radius;
+        discovery_point += (-1) * (1 / 2) * distance + detection_radius;
         discovery_point += submarine_speed * speed_adjustment;
         discovery_point += (-1) * submarine_depth * depth_adjustment;
         if (is_periscope_up) discovery_point += scope_point;
@@ -56,7 +59,10 @@ public class EnemyMove : MonoBehaviour
 
         if (discovery_point > torpedo_launch_point)
         {
-            Launch_Torpedo();
+            // 魚雷の進む方向を示す、方向単位ベクトル
+            Vector3 torpedo_direction = (submarine_pos - ship_pos).normalized;
+
+            Launch_Torpedo(torpedo_direction * torpedo_speed);
         }
     }
 
@@ -80,7 +86,7 @@ public class EnemyMove : MonoBehaviour
     /**
      * 敵が潜水艦に向かって魚雷を発射する
      */
-    private void Launch_Torpedo()
+    private void Launch_Torpedo(Vector3 dir)
     {
         // 未実装
     }
