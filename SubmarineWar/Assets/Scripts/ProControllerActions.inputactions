@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "ProControllerActions",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "fcdd4384-e4c5-4c1a-b38c-8413134a9e7f",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "c67ad3b5-cfd7-49bf-b770-07dc108ef88f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "AButton",
+                    "type": "Button",
+                    "id": "ddf87cce-8242-477f-86d4-41f7be6ae715",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "49186ebe-acfa-4b97-a4dc-7dea7d611f11",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e91d0701-bbe2-4eac-adba-1715677b0c9e",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

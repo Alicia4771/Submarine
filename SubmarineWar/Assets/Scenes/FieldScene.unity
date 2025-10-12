@@ -446,9 +446,11 @@ GameObject:
   - component: {fileID: 581059567}
   - component: {fileID: 581059566}
   - component: {fileID: 581059565}
+  - component: {fileID: 581059570}
   - component: {fileID: 581059564}
-  - component: {fileID: 581059563}
   - component: {fileID: 581059562}
+  - component: {fileID: 581059568}
+  - component: {fileID: 581059569}
   m_Layer: 0
   m_Name: SubmarineScopeObject
   m_TagString: Untagged
@@ -479,18 +481,6 @@ CapsuleCollider:
   m_Height: 100
   m_Direction: 1
   m_Center: {x: 0, y: -50, z: 0}
---- !u!114 &581059563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 581059561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 781b339e555304648b9eed742141f62d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SubmarineMoveSample
 --- !u!65 &581059564
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -584,6 +574,119 @@ Transform:
   - {fileID: 177895797}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &581059568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581059561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 78c115355d7a243a6b9092f34d19ce6d, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 581059561}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 581059569}
+        m_TargetAssemblyTypeName: ProconReceiver, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: c67ad3b5-cfd7-49bf-b770-07dc108ef88f
+    m_ActionName: Gameplay/Move
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 581059569}
+        m_TargetAssemblyTypeName: ProconReceiver, Assembly-CSharp
+        m_MethodName: OnAButton
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: ddf87cce-8242-477f-86d4-41f7be6ae715
+    m_ActionName: Gameplay/AButton
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &581059569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581059561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2439b1942cc41e98beb3c528769464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProconReceiver
+--- !u!54 &581059570
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581059561}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &756192406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,7 +1523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05fec8252c4ee486fabb87247c144483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
-  first_dir: {x: 0, y: 0, z: -1}
+  first_dir: {x: 0, y: 0, z: 0}
   speed: 1
   torpedo_speed: 10
   speed_adjustment: 1
