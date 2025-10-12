@@ -567,7 +567,7 @@ Transform:
   m_GameObject: {fileID: 581059561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38.7, y: 3, z: 8}
+  m_LocalPosition: {x: 38.7, y: -7, z: -34.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -643,6 +643,22 @@ MonoBehaviour:
         m_CallState: 1
     m_ActionId: ddf87cce-8242-477f-86d4-41f7be6ae715
     m_ActionName: Gameplay/AButton
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 581059569}
+        m_TargetAssemblyTypeName: ProconReceiver, Assembly-CSharp
+        m_MethodName: OnLook
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 9a372156-26ac-4fc9-87e7-1483e6649155
+    m_ActionName: 'Gameplay/Look[/SwitchProControllerHID/rightStick]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -685,7 +701,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &756192406
 GameObject:
@@ -838,7 +854,7 @@ Transform:
   m_GameObject: {fileID: 772883037}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -255, y: 0, z: 0}
+  m_LocalPosition: {x: -255, y: -5, z: 0}
   m_LocalScale: {x: 600, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -974,7 +990,7 @@ Transform:
   m_GameObject: {fileID: 854270348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.96, y: 1, z: -21.05}
+  m_LocalPosition: {x: 7.96, y: -9, z: -21.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1108,7 +1124,7 @@ Transform:
   m_GameObject: {fileID: 1171669314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 255, y: 0, z: 0}
+  m_LocalPosition: {x: 255, y: -5, z: 0}
   m_LocalScale: {x: 600, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1221,7 +1237,7 @@ Transform:
   m_GameObject: {fileID: 1249617917}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1413,7 +1429,7 @@ Transform:
   m_GameObject: {fileID: 1318679196}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -255}
+  m_LocalPosition: {x: 0, y: -5, z: -255}
   m_LocalScale: {x: 600, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1505,7 +1521,7 @@ Transform:
   m_GameObject: {fileID: 1492766639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.8, y: 1, z: 8.86}
+  m_LocalPosition: {x: 7.8, y: -9, z: 8.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1683,7 +1699,7 @@ Transform:
   m_GameObject: {fileID: 1824826715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 255}
+  m_LocalPosition: {x: 0, y: -5, z: 255}
   m_LocalScale: {x: 600, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
