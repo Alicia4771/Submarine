@@ -53,7 +53,7 @@ public class EnemyMove : MonoBehaviour
         Vector3 submarine_pos = DataManager.GetSubmarinePosition(); // 潜水艦の座標を取得
         float submarine_speed = DataManager.GetSubmarineSpeed();    // 潜水艦の速度を取得
         float submarine_depth = DataManager.GetSubmarineDepth();    // 潜水艦の深度を取得
-        bool is_periscope_up = DataManager.GetIsPeriscopeUp();      // 潜望鏡が上がっているかどうかを取得
+        bool is_periscope_up = DataManager.GetIsPeriscopeUp();    // 潜望鏡が上がっているかどうかを取得
 
         // 潜水艦との距離を計算（２次元）
         float distance = Mathf.Sqrt(Mathf.Pow(ship_pos.x - submarine_pos.x, 2) + Mathf.Pow(ship_pos.z - submarine_pos.z, 2));
@@ -77,7 +77,8 @@ public class EnemyMove : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("EnemyShip") || collision.gameObject.CompareTag("FieldEdge"))
-        {
+    {
+            Debug.Log("壁に衝突しました。");
             direction = SetDirection();
         }
     }
