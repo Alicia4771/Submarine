@@ -70,6 +70,7 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
                 // 1. 弾の生成 (Instantiate)
                 //    設定された TorpedoPrefab を firePoint の位置と回転でシーンに複製する
                 GameObject torpedo = Instantiate(torpedoPrefab, firePoint.position, firePoint.rotation);
+                
 
                 // 2. 弾の発射 (AddForce)
                 Rigidbody rb = torpedo.GetComponent<Rigidbody>();
