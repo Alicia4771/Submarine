@@ -5,8 +5,8 @@ public class ProconReceiver : MonoBehaviour
 {
     Rigidbody rigidbody;
 
-    private float speed = 1;    // 潜水艦の速度
-    private float maxSpeed = 5; // 潜水艦の最大速度
+    private float speed = 3;    // 潜水艦の速度
+    private float maxSpeed = 20; // 潜水艦の最大速度
     private float depth;    // 潜水艦の深さ
     private float torpedo_speed;
 
