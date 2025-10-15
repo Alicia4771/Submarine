@@ -7,11 +7,12 @@ public static class DataManager
     private static float submarine_depth;    // 潜水艦の深度
     private static bool is_periscope_up;   // 潜望鏡が上がっているかどうか
 
+
+
     static void Initialize()
     {
         is_periscope_up = false;
     }
-
 
     /**
      * 潜水艦の現在の座標を返す

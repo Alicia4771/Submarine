@@ -68,6 +68,7 @@
     <Compile Include="Assets/VRTemplateAssets/Scripts/RayAttachModifier.cs" />
     <Compile Include="Assets/Scripts/SubmarineMoveSample.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/XRPokeFollowAffordanceFill.cs" />
+    <Compile Include="Assets/Scripts/UtilFunction.cs" />
     <Compile Include="Assets/Scripts/DataManager.cs" />
     <Compile Include="Assets/Scripts/BulletFire.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/BezierCurve.cs" />
@@ -80,9 +81,11 @@
     <Compile Include="Assets/Scripts/KTScripts/TorpedoLauncher.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/Callout.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/CalloutGazeController.cs" />
+    <Compile Include="Assets/Scripts/TorpedoScript.cs" />
     <Compile Include="Assets/Scripts/BulletControler.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/StepManager.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/AnchorVisuals.cs" />
+    <Compile Include="Assets/Scripts/CameraScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

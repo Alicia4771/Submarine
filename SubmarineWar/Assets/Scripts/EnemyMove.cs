@@ -70,7 +70,7 @@ public class EnemyMove : MonoBehaviour
             // 魚雷の進む方向を示す、方向単位ベクトル
             Vector3 torpedo_direction = (submarine_pos - ship_pos).normalized;
 
-            Launch_Torpedo(torpedo_direction * torpedo_speed);
+            LaunchTorpedo(torpedo_direction * torpedo_speed);
         }
     }
 
@@ -103,7 +103,7 @@ public class EnemyMove : MonoBehaviour
     /**
      * 敵が潜水艦に向かって魚雷を発射する
      */
-    private void Launch_Torpedo(Vector3 dir)
+    private void LaunchTorpedo(Vector3 dir)
     {
         // 未実装
     }

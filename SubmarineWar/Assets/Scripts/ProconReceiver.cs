@@ -5,6 +5,9 @@ public class ProconReceiver : MonoBehaviour
 {
     Rigidbody rigidbody;
 
+    [SerializeField]
+    private UtilFunction util;
+
     private float speed = 3;    // 潜水艦の速度
     private float maxSpeed = 20; // 潜水艦の最大速度
     private float depth;    // 潜水艦の深さ
@@ -75,5 +78,10 @@ public class ProconReceiver : MonoBehaviour
         look = ctx.ReadValue<Vector2>();
     }
 
-    void Fire() { /* 任意の処理 */ }
+    void Fire()
+    {
+        Vector3 dir = this.transform.forward;
+
+        util.LaunchTorpedo(transform.position, dir);
+    }
 }
