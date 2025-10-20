@@ -71,6 +71,7 @@
     <Compile Include="Assets/Scripts/TorpedoScript.cs" />
     <Compile Include="Assets/Scripts/BulletControler.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/StepManager.cs" />
+    <Compile Include="Assets/Scripts/CameraManager.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/AnchorVisuals.cs" />
     <Compile Include="Assets/Scripts/CameraScript.cs" />
   </ItemGroup>
