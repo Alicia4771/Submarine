@@ -56,6 +56,10 @@ public class ProconReceiver : MonoBehaviour
         {
             Quaternion delta = Quaternion.AngleAxis(look.x, Vector3.up);
             rigidbody.MoveRotation(rigidbody.rotation * delta);
+        } else
+        {
+            // 回転を止める
+            rigidbody.angularVelocity = Vector3.zero;
         }
     }
 

@@ -27,15 +27,15 @@ public class HandleObserver : MonoBehaviour
             if (rotation_x > 0)
             {
                 // 右旋回
-                Debug.Log("right" + rotation_x);
+                //Debug.Log("right" + rotation_x);
             } else
             {
                 // 左旋回
-                Debug.Log("left" + rotation_x);
+                //Debug.Log("left" + rotation_x);
             }
         } else
         {
-            Debug.Log("stop" + rotation_x);
+            //Debug.Log("stop" + rotation_x);
         }
     }
 }
