@@ -19,7 +19,7 @@ public class HandleObserver : MonoBehaviour
     void Update()
     {
         handle_rotation_quaternion = Handle.rotation;
-        float rotation_x = handle_rotation_quaternion.x;
+        float rotation_x = handle_rotation_quaternion.z;
         //float rotation_x = Mathf.DeltaAngle(0f, Handle.localEulerAngles.x);
 
         if (!(Mathf.Abs(rotation_x) < stop_range))
@@ -27,15 +27,15 @@ public class HandleObserver : MonoBehaviour
             if (rotation_x > 0)
             {
                 // 右旋回
-                //Debug.Log("right" + rotation_x);
+                Debug.Log("right" + rotation_x);
             } else
             {
                 // 左旋回
-                //Debug.Log("left" + rotation_x);
+                Debug.Log("left" + rotation_x);
             }
         } else
         {
-            //Debug.Log("stop" + rotation_x);
+            Debug.Log("stop" + rotation_x);
         }
     }
 }
