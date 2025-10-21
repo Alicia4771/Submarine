@@ -15,6 +15,7 @@ public static class DataManager
     static void Initialize()
     {
         is_periscope_up = false;
+        enemy_ships = new string[] { };
     }
 
     /**
@@ -105,7 +106,6 @@ public static class DataManager
     {
         score = new_score;
     }
-
 
 
 
