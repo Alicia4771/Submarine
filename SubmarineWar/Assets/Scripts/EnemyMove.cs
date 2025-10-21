@@ -76,8 +76,9 @@ public class EnemyMove : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("衝突");
         if (collision.gameObject.CompareTag("EnemyShip") || collision.gameObject.CompareTag("FieldEdge"))
-    {
+        {
             Debug.Log("壁に衝突しました。");
             direction = SetDirection();
         }

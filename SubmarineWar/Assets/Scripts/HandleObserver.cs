@@ -24,7 +24,7 @@ public class HandleObserver : MonoBehaviour
 
         if (!(Mathf.Abs(rotation_x) < stop_range))
         {
-            if (rotation_x > 0)
+            if (rotation_x < 0)
             {
                 // 右旋回
                 Debug.Log("right" + rotation_x);

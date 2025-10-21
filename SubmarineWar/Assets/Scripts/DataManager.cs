@@ -6,6 +6,9 @@ public static class DataManager
     private static float submarine_speed;    // 潜水艦の速度
     private static float submarine_depth;    // 潜水艦の深度
     private static bool is_periscope_up;   // 潜望鏡が上がっているかどうか
+    private static int score;       // 現在のスコア
+
+    private static string[] enemy_ships;
 
 
 
@@ -74,5 +77,40 @@ public static class DataManager
     public static bool GetIsPeriscopeUp()
     {
         return is_periscope_up;
+    }
+
+    /**
+     * 現在のスコアを返す
+     * @return int スコア
+     */
+    public static int GetScore()
+    {
+        return score;
+    }
+
+    /**
+     * スコアを加算する
+     * @param int additional_score 加算するスコア
+     */
+    public static void AddScore(int additional_score)
+    {
+        score += additional_score;
+    }
+
+    /**
+     * スコアを設定する
+     * @param int new_score 現在のスコア
+     */
+    public static void SetScore(int new_score)
+    {
+        score = new_score;
+    }
+
+
+
+
+    public static void AddEnemyShip(string enemyShip_name)
+    {
+
     }
 }
