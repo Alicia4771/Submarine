@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour
     mainCamera = GameObject.Find("Main Camera");
 
     // 潜望鏡のカメラは、デフォルトで無効にしとく
-    mainCamera.SetActive(false);
+    submarineCamera.SetActive(false);
     }
 
     // Update is called once per frame
