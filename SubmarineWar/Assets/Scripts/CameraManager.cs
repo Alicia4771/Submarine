@@ -6,16 +6,16 @@ using UnityEngine.InputSystem;
 public class CameraManager : MonoBehaviour
 {
   public GameObject submarineCamera;
-  public GameObject scopeCamera;
+  public GameObject mainCamera;
 
     void Start()
   {
     // 潜水艦内部と潜望鏡のカメラオブジェクトを取得
     submarineCamera = GameObject.Find("SubmarineCamera");
-    scopeCamera = GameObject.Find("ScopeCamera");
+    mainCamera = GameObject.Find("Main Camera");
 
     // 潜望鏡のカメラは、デフォルトで無効にしとく
-    scopeCamera.SetActive(false);
+    mainCamera.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class CameraManager : MonoBehaviour
       if(Keyboard.current.spaceKey.wasPressedThisFrame)
     {
       submarineCamera.SetActive(!submarineCamera.activeSelf);
-      scopeCamera.SetActive(!scopeCamera.activeSelf);
+      mainCamera.SetActive(!mainCamera.activeSelf);
     }   
     }
 }
