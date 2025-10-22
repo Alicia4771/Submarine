@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public static class DataManager
 {
@@ -8,14 +9,13 @@ public static class DataManager
     private static bool is_periscope_up;   // 潜望鏡が上がっているかどうか
     private static int score;       // 現在のスコア
 
-    private static string[] enemy_ships;
-
+    private static List<string> enemy_ships_list = new();
 
 
     static void Initialize()
     {
         is_periscope_up = false;
-        enemy_ships = new string[] { };
+        enemy_ships_list = new List<string>();
     }
 
     /**
@@ -108,9 +108,44 @@ public static class DataManager
     }
 
 
-
-    public static void AddEnemyShip(string enemyShip_name)
+    /**
+     * 敵船を追加する
+     * @param string enemyShip_name 敵船の名前（例：EnemyShip_1, EnemyShip_21）
+     * @return bool 追加成功：true, 追加失敗：false
+     */
+    public static bool AddEnemyShip(string enemyShip_name)
     {
+        // nullチェック
+        if (string.IsNullOrWhiteSpace(enemyShip_name)) return false;
 
+        // 形式チェック
+        string[] tokens = enemyShip_name.Split("_");
+        if (tokens.Length != 2) return false;
+        if (tokens[0] != "EnemyShip") return false;
+
+        enemy_ships_list.Add(enemyShip_name);
+        return true;
+    }
+
+    /**
+     * 敵船を削除する
+     * @param string enemyShip_name 敵船の名前（例：EnemyShip_1, EnemyShip_21）
+     * @return bool 削除成功：true, 削除失敗：false
+     */
+    public static bool DeleteEnemyShip(string enemyShip_name)
+    {
+        // nullチェック
+        if (string.IsNullOrWhiteSpace(enemyShip_name)) return false;
+
+        return enemy_ships_list.Remove(enemyShip_name);
+    }
+
+    /**
+     * 敵船の一覧をList<string>型で返す
+     * @return List<string> 敵船の一覧
+     */
+    public static List<string> GetEnemyShipList()
+    {
+        return enemy_ships_list;
     }
 }
