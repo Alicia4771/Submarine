@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
   void Start()
   {
     Debug.Log("ゲーム開始");
+
+    // DataManagerを初期化
+    Debug.Log("初期化します");
+    DataManager.Initialize();
 
     // 敵船を出現させる（３つ）
     // １つ目
@@ -28,6 +33,13 @@ public class GameManager : MonoBehaviour
     DataManager.AddEnemyShip("EnemyShip_1");
     DataManager.AddEnemyShip("EnemyShip_2");
     DataManager.AddEnemyShip("EnemyShip_3");
+
+    // 確認のため、敵船リストを表示
+    List<string> enemyShips = DataManager.GetEnemyShipList();
+    for (int i = 0; i < enemyShips.Count; i++)
+    {
+      Debug.Log(enemyShips[i]);
+    }
   }
 
   // Update is called once per frame
