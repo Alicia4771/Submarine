@@ -128,6 +128,20 @@ public static class DataManager
     }
 
     /**
+     * 敵船を追加する
+     * @param int enemyShip_num 敵船の名前の番号（例：1, 13, 21）
+     * @return bool 追加成功：true, 追加失敗：false
+     */
+    public static bool AddEnemyShip(int enemyShip_num)
+    {
+        if (enemyShip_num < 0) return false;
+
+        string enemyShip_name = "EnemyShip_" + enemyShip_num;
+        enemy_ships_list.Add(enemyShip_name);
+        return true;
+    }
+
+    /**
      * 敵船を削除する
      * @param string enemyShip_name 敵船の名前（例：EnemyShip_1, EnemyShip_21）
      * @return bool 削除成功：true, 削除失敗：false
@@ -136,6 +150,20 @@ public static class DataManager
     {
         // nullチェック
         if (string.IsNullOrWhiteSpace(enemyShip_name)) return false;
+
+        return enemy_ships_list.Remove(enemyShip_name);
+    }
+
+    /**
+     * 敵船を削除する
+     * @param string enemyShip_num 敵船の名前の番号（例：1, 13, 21）
+     * @return bool 削除成功：true, 削除失敗：false
+     */
+    public static bool DeleteEnemyShip(int enemyShip_num)
+    {
+        if (enemyShip_num < 0) return false;
+
+        string enemyShip_name = "EnemyShip_" + enemyShip_num;
 
         return enemy_ships_list.Remove(enemyShip_name);
     }
