@@ -3,8 +3,12 @@ using System.Collections.Generic;
 
 public class BulletControler : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+  public static int enemyShipNumber = 0;
+  public GameObject enemyShipPrefab; // 敵船プレハブの用意
+
+  // Start is called once before the first execution of Update after the MonoBehaviour is created
+  void Start()
     {
         
     }
@@ -30,12 +34,19 @@ public class BulletControler : MonoBehaviour
       // EnemyShipオブジェクトの削除
       Destroy(collision.gameObject);
       DataManager.DeleteEnemyShip(enemyName);
-      // // 確認のため、敵船リストを表示
-      // List<string> enemyShips = DataManager.GetEnemyShipList();
-      // for (int i = 0; i < enemyShips.Count; i++)
-      // {
-      //   Debug.Log(enemyShips[i]);
-      // }
+      // 新たにEnemyShipオブジェクトを作成
+      Vector3 spawnPosition = new Vector3(0, 0, 0); // 設置する座標
+      GameObject EnemyShip = Instantiate(enemyShipPrefab, spawnPosition, Quaternion.identity); // プレハブの作成
+      enemyShipNumber += 1;
+      EnemyShip.name = "EnemyShip_" + enemyShipNumber.ToString(); // 名前の決定
+      DataManager.AddEnemyShip(EnemyShip.name);
+
+      // 確認のため、敵船リストを表示
+      List<string> enemyShips = DataManager.GetEnemyShipList();
+      for (int i = 0; i < enemyShips.Count; i++)
+      {
+        Debug.Log(enemyShips[i]);
+      }
     }
     // 壁に衝突した時
     else
