@@ -71,10 +71,12 @@
     <Compile Include="Assets/Scripts/UtilFunction.cs" />
     <Compile Include="Assets/Scripts/DataManager.cs" />
     <Compile Include="Assets/Scripts/BulletFire.cs" />
+    <Compile Include="Assets/Scripts/KTScripts/CameraSwitcher.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/BezierCurve.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/LaunchProjectile.cs" />
     <Compile Include="Assets/Scripts/EnemyMove.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/HandSubsystemManager.cs" />
+    <Compile Include="Assets/Scripts/SubmarineCameraControl.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/DestroyObject.cs" />
     <Compile Include="Assets/Scripts/ProconReceiver.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/VideoTimeScrubControl.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Assets/Scripts/HandleObserver.cs" />
     <Compile Include="Assets/Scripts/TorpedoScript.cs" />
     <Compile Include="Assets/Scripts/BulletControler.cs" />
+    <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/StepManager.cs" />
     <Compile Include="Assets/Scripts/CameraManager.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/AnchorVisuals.cs" />
