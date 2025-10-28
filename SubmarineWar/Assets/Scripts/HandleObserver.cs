@@ -5,6 +5,9 @@ public class HandleObserver : MonoBehaviour
     [SerializeField]
     private Transform Handle;
 
+    [SerializeField]
+    private SubmarineMoveSample submarineMove;
+
     private Quaternion handle_rotation_quaternion;
     private Vector3 handle_rotation;
 
@@ -13,7 +16,7 @@ public class HandleObserver : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -28,14 +31,22 @@ public class HandleObserver : MonoBehaviour
             {
                 // 右旋回
                 Debug.Log("right" + rotation_x);
-            } else
+
+            }
+            else
             {
                 // 左旋回
                 Debug.Log("left" + rotation_x);
             }
-        } else
+
+            submarineMove.turn(rotation_x);
+        }
+        else
         {
+            // 真っ直ぐ
             Debug.Log("stop" + rotation_x);
+
+            submarineMove.turn(0);
         }
     }
 }
