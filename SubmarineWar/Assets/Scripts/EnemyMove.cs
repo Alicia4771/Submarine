@@ -98,6 +98,9 @@ public class EnemyMove : MonoBehaviour
         // 求めた方向ベクトルを正規化
         dir_vec.Normalize();
 
+        // オブジェクトの向きを設定する
+        transform.rotation = Quaternion.LookRotation(direction.normalized, Vector3.up);
+
         return dir_vec;
     }
 
