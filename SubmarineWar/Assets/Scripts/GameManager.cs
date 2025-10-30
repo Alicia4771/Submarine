@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-  　// 敵船のプレハブをInspectorからアサイン
-  　public GameObject enemyShipPrefab;
+    // 敵船のプレハブをInspectorからアサイン
+    public GameObject enemyShipPrefab;
+    // シーン遷移用のSceneLoader
+    public SceneLoader sceneLoader;
 
   　// Start is called once before the first execution of Update after the MonoBehaviour is created
   　void Start()
@@ -55,12 +57,18 @@ public class GameManager : MonoBehaviour
         DataManager.SetTimeLimit(currentTime - Time.deltaTime);
       }
       Debug.Log(DataManager.GetTimeLimit());
-      // 残り時間が0ならば、終了シーンに遷移
-      if(DataManager.GetTimeLimit() < 0)
+      // 残り時間が0以下ならば、終了シーンに遷移
+      if(DataManager.GetTimeLimit() <= 0)
       {
-        Debug.Log("ゲーム終了です。");
-      }
-            
-
+          Debug.Log("ゲーム終了。シーン遷移を行う。");
+          if (sceneLoader != null)
+          {
+              sceneLoader.LoadScene("EndScene"); // 遷移先シーン名は適宜変更
+          }
+          else
+          {
+              Debug.LogError("SceneLoaderがアサインされていません。");
+          }
+        }
     }
 }
