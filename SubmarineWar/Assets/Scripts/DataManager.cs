@@ -185,7 +185,7 @@ public static class DataManager
 
         return EnemyShipDistanceList;
     }
-    * 残り制限時間を取得する
+    /** 残り制限時間を取得する
     * @return float 残り時間
     */
     public static float GetTimeLimit()
@@ -193,8 +193,8 @@ public static class DataManager
       return timeLimit;
     }
 
-    public static void SetTimeLimit(float time)
-    {
-      timeLimit = time;
-
+  public static void SetTimeLimit(float time)
+  {
+    timeLimit = time;
+  }
 }
