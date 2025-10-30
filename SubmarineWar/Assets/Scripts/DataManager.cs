@@ -9,6 +9,7 @@ public static class DataManager
     private static float submarine_depth;    // 潜水艦の深度
     private static bool is_periscope_up;   // 潜望鏡が上がっているかどうか
     private static int score;       // 現在のスコア
+    private static float timeLimit = 10f; // 残り制限時間(s)
 
     private static List<string> enemy_ships_list = new();
 
@@ -184,4 +185,16 @@ public static class DataManager
 
         return EnemyShipDistanceList;
     }
+    * 残り制限時間を取得する
+    * @return float 残り時間
+    */
+    public static float GetTimeLimit()
+    {
+      return timeLimit;
+    }
+
+    public static void SetTimeLimit(float time)
+    {
+      timeLimit = time;
+
 }
