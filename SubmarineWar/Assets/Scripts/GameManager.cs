@@ -48,5 +48,19 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      // 残り時間を減らす
+      float currentTime = DataManager.GetTimeLimit();
+      if (currentTime > 0f)
+      {
+        DataManager.SetTimeLimit(currentTime - Time.deltaTime);
+      }
+      Debug.Log(DataManager.GetTimeLimit());
+      // 残り時間が0ならば、終了シーンに遷移
+      if(DataManager.GetTimeLimit() < 0)
+      {
+        Debug.Log("ゲーム終了です。");
+      }
+            
+
     }
 }
