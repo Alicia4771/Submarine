@@ -18,8 +18,6 @@ public class SonarScript : MonoBehaviour
     private List<Vector2> displayEnemyShipList;
     private List<Vector2> displayTorpedoList;
 
-    // SonarPoint(Clone)
-
 
     void Start()
     {
@@ -42,7 +40,12 @@ public class SonarScript : MonoBehaviour
     }
 
 
-
+    /**
+     * 敵船や魚雷の方向と距離の情報がまとめられたListを受け取り、ソナーに表示する位置の情報に変換されたListを返す。
+     * 
+     * @param List<float[]> RawList 潜水艦からの方向と距離の情報を持った一覧のList
+     * @return List<Vector2> ソナーに表示する座標の情報だけを持ったList
+     */
     private List<Vector2> MakeDisplayList(List<float[]> RawList)
     {
         if (RawList == null) return null;
@@ -64,6 +67,15 @@ public class SonarScript : MonoBehaviour
         return displayList;
     }
 
+
+    /**
+     * ソナーに表示する座標の情報だけを持ったListから、指定されたオブジェクトをその位置に生成する
+     * 
+     * @param List<Vector2> displayList ソナーに表示する座標の情報を持ったList
+     * @param GameObject point 生成するオブジェクト
+     * 
+     * @return bool 追加成功：true, 追加失敗：false
+     */
     private bool GenerateSonarPoint(List<Vector2> displayList, GameObject point)
     {
         if (displayList == null) return false;
