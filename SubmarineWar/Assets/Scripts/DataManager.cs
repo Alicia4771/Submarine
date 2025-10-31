@@ -12,6 +12,8 @@ public static class DataManager
 
     private static float timeLimit = 100f; // 残り制限時間(s)
 
+    private static float submarine_max_speed = 10;
+
     private static List<string> enemy_ships_list = new();
     private static List<string> torpedo_list = new();
 
@@ -56,6 +58,15 @@ public static class DataManager
     public static void SetSubmarineSpeed(float speed)
     {
         submarine_speed = speed;
+    }
+
+    /**
+     * スピードレバーから、潜水艦の速度を設定する
+     * @param float speed_lever_value スピードレバーの割合(0-1)
+     */
+    public static void SetSubmarineSpeedLeverRatio(float speed_lever_value)
+    {
+        submarine_speed = submarine_max_speed * speed_lever_value;
     }
 
     /**
