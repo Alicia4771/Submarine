@@ -12,6 +12,7 @@ public static class DataManager
     private static float timeLimit = 10f; // 残り制限時間(s)
 
     private static List<string> enemy_ships_list = new();
+    private static List<string> torpedo_list = new();
 
 
     public static void Initialize()
@@ -149,6 +150,63 @@ public static class DataManager
     public static List<string> GetEnemyShipList()
     {
         return enemy_ships_list;
+    }
+
+    /**
+     * 魚雷を追加する(オブジェクト名で)
+     * 
+     * @param string torpedo_name 敵船の名前（例：Torpedo_1, Torpedo_21）
+     * @return bool 追加成功：true, 追加失敗：false
+     */
+    public static bool AddTorpedo(string torpedo_name)
+    {
+        // nullチェック
+        if (string.IsNullOrWhiteSpace(torpedo_name)) return false;
+
+        // 形式チェック
+        string[] tokens = torpedo_name.Split("_");
+        if (tokens.Length != 2) return false;
+        if (tokens[0] != "Torpedo") return false;
+
+        torpedo_list.Add(torpedo_name);
+        return true;
+    }
+
+    /**
+     * 魚雷を追加する(番号で)
+     * 
+     * @param int torpedo_num 敵船の名前の番号（例：1, 13, 21）
+     * @return bool 追加成功：true, 追加失敗：false
+     */
+    public static bool AddTorpedo(int torpedo_num)
+    {
+        if (torpedo_num < 0) return false;
+
+        string enemyShip_name = "Torpedo_" + torpedo_num;
+        torpedo_list.Add(enemyShip_name);
+        return true;
+    }
+
+    /**
+     * 魚雷を削除する(オブジェクト名で)
+     * @param string torpedo_name 敵船の名前（例：Torpedo_1, Torpedo_21）
+     * @return bool 削除成功：true, 削除失敗：false
+     */
+    public static bool DeleteTorpedo(string torpedo_name)
+    {
+        // nullチェック
+        if (string.IsNullOrWhiteSpace(torpedo_name)) return false;
+
+        return torpedo_list.Remove(torpedo_name);
+    }
+
+    /**
+     * 魚雷の一覧をList<string>型で返す
+     * @return List<string> 敵船の一覧
+     */
+    public static List<string> GetTorpedoList()
+    {
+        return torpedo_list;
     }
 
     /**
