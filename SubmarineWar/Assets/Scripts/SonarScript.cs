@@ -12,12 +12,13 @@ public class SonarScript : MonoBehaviour
     private float sonar_interval = 1f;  // ソナーの情報を更新する間隔(s)
     private float acc;
 
-    private float sonar_radius = 1; // 潜水艦のソナーの半径
+    private float sonar_radius = 0.5f; // 潜水艦のソナーの半径
     private float sonar_search_radius = 100;
 
     private List<Vector2> displayEnemyShipList;
     private List<Vector2> displayTorpedoList;
 
+    // SonarPoint(Clone)
 
 
     void Start()
@@ -30,6 +31,8 @@ public class SonarScript : MonoBehaviour
         acc += Time.deltaTime;
         if (acc < sonar_interval) return;
         acc = 0f;
+
+        foreach (GameObject sonar_point in GameObject.FindGameObjectsWithTag("SonarPoint")) Destroy(sonar_point);
 
         displayEnemyShipList = MakeDisplayList(DataManager.GetEnemyShipDistanceList());
         displayTorpedoList = MakeDisplayList(DataManager.GetTorpedoDistanceList());
