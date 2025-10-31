@@ -1,11 +1,16 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SonarScript : MonoBehaviour
 {
 
     private Vector3 center_point;
 
-    private float sonar_radius = 1;
+    private float sonar_radius = 1; // 潜水艦のソナーの半径
+
+    private List<float[]> EnemyShipList;
+    private List<float[]> TorpedoList;
+
 
 
     void Start()
@@ -15,6 +20,7 @@ public class SonarScript : MonoBehaviour
 
     void Update()
     {
-        DataManager.GetEnemyShipDistanceList();
+        EnemyShipList = DataManager.GetEnemyShipDistanceList();
+        TorpedoList = DataManager.GetTorpedoList();
     }
 }

@@ -243,6 +243,44 @@ public static class DataManager
 
         return EnemyShipDistanceList;
     }
+
+    /**
+     * 潜水艦と全ての敵船の距離と方角の情報をListにして返す
+     * 
+     * ## 情報の入り方
+     * [(subm_x - ship_x), (subm_z - ship_z), (distance)]
+     * - 潜水艦から敵船への方角：Vector2([0], [1])
+     * - 潜水艦から敵船までの距離；[2]
+     * 
+     * @return List<float[]> 
+     */
+    public static List<float[]> GetTorpedoDistanceList()
+    {
+        List<float[]> TorpedoDistanceList = new();
+
+        for (int i = 0; i < torpedo_list.Count; i++)
+        {
+            GameObject Torpedo = GameObject.Find(torpedo_list[i]);
+            if (Torpedo == null) continue;
+
+            float[] result = new float[3];
+
+            Vector3 torpedo_pos = Torpedo.transform.position;
+            float torpedo_pos_x = torpedo_pos.x;
+            float torpedo_pos_z = torpedo_pos.z;
+
+            result[0] = torpedo_pos_x - submarine_position.x;
+            result[1] = torpedo_pos_z - submarine_position.z;
+            result[2] = Mathf.Sqrt((result[0] * result[0]) + (result[1] * result[1]));
+
+            TorpedoDistanceList.Add(result);
+        }
+
+        return TorpedoDistanceList;
+    }
+
+
+
     /** 残り制限時間を取得する
     * @return float 残り時間
     */
