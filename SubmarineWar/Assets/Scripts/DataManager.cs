@@ -86,6 +86,13 @@ public static class DataManager
         submarine_depth = depth;
     }
 
+    public static void MoveSubmarineDepth(float depth_lever_value)
+    {
+        
+
+        submarine_depth += 0;
+    }
+
     /**
      * 潜望鏡が上がっているかどうかを返す
      * @return bool 潜望鏡が上がっているかどうか
