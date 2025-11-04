@@ -35,7 +35,7 @@ public class BulletControler : MonoBehaviour
       Destroy(collision.gameObject);
       DataManager.DeleteEnemyShip(enemyName);
       // 新たにEnemyShipオブジェクトを作成
-      Vector3 spawnPosition = new Vector3(0, 0, 0); // 設置する座標
+      Vector3 spawnPosition = new Vector3(0, -5, 0); // 設置する座標
       GameObject EnemyShip = Instantiate(enemyShipPrefab, spawnPosition, Quaternion.identity); // プレハブの作成
       enemyShipNumber += 1;
       EnemyShip.name = "EnemyShip_" + enemyShipNumber.ToString(); // 名前の決定
