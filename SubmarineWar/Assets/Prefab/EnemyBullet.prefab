@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 6653246747289296128}
   - component: {fileID: 8792327849270738533}
   - component: {fileID: 3201581524559483250}
-  - component: {fileID: -157960744633434959}
+  - component: {fileID: -3084418126516368070}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Untagged
+  m_Name: EnemyBullet
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-157960744633434959
+--- !u!114 &-3084418126516368070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +149,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2023642377354847684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4afa2211f164d30878a9205b6b0822, type: 3}
+  m_Script: {fileID: 11500000, guid: aed661599b70548d6a77ed5126f59983, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BulletControler
-  enemyShipPrefab: {fileID: 1527636721989725583, guid: 920330aad82314352922c987cedcbeb6, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBulletControler

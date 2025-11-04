@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b6482196e52e548629d8673d4ca182db, type: 3}
       propertyPath: m_Name
-      value: EnemyShip
+      value: EnemyShip_befor
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b6482196e52e548629d8673d4ca182db, type: 3}
       propertyPath: m_TagString
@@ -149,8 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05fec8252c4ee486fabb87247c144483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  EnemyBullet: {fileID: 2023642377354847684, guid: fefe6978fc4c04116abe5f4e790ae292, type: 3}
+  torpedoCooldown: 10
   first_dir: {x: 0, y: 0, z: 0}
   speed: 1
-  torpedo_speed: 10
+  torpedo_speed: 2000
   speed_adjustment: 1
   depth_adjustment: 1

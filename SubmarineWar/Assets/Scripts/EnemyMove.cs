@@ -1,8 +1,19 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemyMove : MonoBehaviour
 {
+
     Rigidbody rigidbody;
+
+    [SerializeField, Tooltip("魚雷のプレハブ")]
+    private GameObject EnemyBullet;
+
+    private static int torpedoCount = 0;
+
+    private float lastTorpedoTime = 0f;
+    [SerializeField, Tooltip("敵魚雷発射のクールタイム（秒）")]
+    private float torpedoCooldown = 1f;
 
     private Vector3 direction;  // 方向単位ベクトル
 
@@ -64,13 +75,14 @@ public class EnemyMove : MonoBehaviour
         discovery_point += (-1) * submarine_depth * depth_adjustment;
         if (is_periscope_up) discovery_point += scope_point;
 
-
-        if (discovery_point > torpedo_launch_point)
+        // クールタイム判定
+        if (discovery_point > torpedo_launch_point && Time.time - lastTorpedoTime > torpedoCooldown)
+        // if (discovery_point > torpedo_launch_point)
         {
             // 魚雷の進む方向を示す、方向単位ベクトル
             Vector3 torpedo_direction = (submarine_pos - ship_pos).normalized;
-
             LaunchTorpedo(torpedo_direction * torpedo_speed);
+            lastTorpedoTime = Time.time;
         }
     }
 
@@ -108,7 +120,36 @@ public class EnemyMove : MonoBehaviour
      * 敵が潜水艦に向かって魚雷を発射する
      */
     private void LaunchTorpedo(Vector3 dir)
-    {
-        // 未実装
+  {
+        // if (EnemyBullet == null)
+        // {
+        //     Debug.LogError($"EnemyBulletがアサインされていません: {gameObject.name}");
+        //     return;
+        // }
+
+        // 魚雷を自身の位置よりy軸方向にy_down下げて出現させる
+        float y_down = -50f;
+        Vector3 spawnPos = transform.position + new Vector3(0, y_down, 0);
+        GameObject torpedo = Instantiate(EnemyBullet, spawnPos, Quaternion.identity);
+        // 魚雷を進ませる
+        Rigidbody torpedoRb = torpedo.GetComponent<Rigidbody>();
+        if (torpedoRb != null)
+        {
+            torpedoRb.AddForce(dir, ForceMode.Force);
+        }
+        // 魚雷の名前を決定
+        torpedoCount++;
+        string torpedoName = $"Torpedo_{torpedoCount}";
+        torpedo.name = torpedoName;
+        // DataManagerでリスト管理
+        DataManager.AddTorpedo(torpedo.name);
+
+        // デバッグ用
+        // Debug.Log("敵戦から球が発射されました。");
+        // List<string> enemyBullet = DataManager.GetTorpedoList();
+        // for (int i = 0; i < enemyBullet.Count; i++)
+        // {
+        //   Debug.Log(enemyBullet[i]);
+        // }
     }
 }

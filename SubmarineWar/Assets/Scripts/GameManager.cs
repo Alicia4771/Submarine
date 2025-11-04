@@ -19,17 +19,17 @@ public class GameManager : MonoBehaviour
 
         // 敵船を出現させる（３つ）
         // １つ目
-        Vector3 spawnPosition_1 = new Vector3(0, 0, 0); // 設置する座標
+        Vector3 spawnPosition_1 = new Vector3(0, -5, 0); // 設置する座標
         GameObject EnemyShip_1 = Instantiate(enemyShipPrefab, spawnPosition_1, Quaternion.identity); // プレハブの作成
         BulletControler.enemyShipNumber += 1;
         EnemyShip_1.name = "EnemyShip_"+(BulletControler.enemyShipNumber).ToString(); // 名前の決定
         // ２つ目
-        Vector3 spawnPosition_2 = new Vector3(0, 0, 10); // 設置する座標
+        Vector3 spawnPosition_2 = new Vector3(0, -5, 10); // 設置する座標
         GameObject EnemyShip_2 = Instantiate(enemyShipPrefab, spawnPosition_2, Quaternion.identity); // プレハブの作成
         BulletControler.enemyShipNumber += 1;
         EnemyShip_2.name = "EnemyShip_"+(BulletControler.enemyShipNumber).ToString(); // 名前の決定
         // ３つ目
-        Vector3 spawnPosition_3 = new Vector3(0, 0, 20); // 設置する座標
+        Vector3 spawnPosition_3 = new Vector3(0, -5, 20); // 設置する座標
         GameObject EnemyShip_3 = Instantiate(enemyShipPrefab, spawnPosition_3, Quaternion.identity); // プレハブの作成
         BulletControler.enemyShipNumber += 1;
         EnemyShip_3.name = "EnemyShip_"+(BulletControler.enemyShipNumber).ToString(); // 名前の決定
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
       {
         DataManager.SetTimeLimit(currentTime - Time.deltaTime);
       }
-      Debug.Log(DataManager.GetTimeLimit());
+      // Debug.Log("残り時間"+DataManager.GetTimeLimit());
       // 残り時間が0以下ならば、終了シーンに遷移
       if(DataManager.GetTimeLimit() <= 0)
       {
