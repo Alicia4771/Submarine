@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandleObserver
   Handle: {fileID: 9237980}
-  submarineMove: {fileID: 0}
+  submarineMove: {fileID: 581059571}
 --- !u!4 &166858867
 Transform:
   m_ObjectHideFlags: 0
@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 581059562}
   - component: {fileID: 581059568}
   - component: {fileID: 581059569}
+  - component: {fileID: 581059571}
   m_Layer: 0
   m_Name: SubmarineScopeObject
   m_TagString: SubmarineBody
@@ -1700,6 +1701,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &581059571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581059561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781b339e555304648b9eed742141f62d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SubmarineMoveSample
 --- !u!1 &756192406
 GameObject:
   m_ObjectHideFlags: 0
