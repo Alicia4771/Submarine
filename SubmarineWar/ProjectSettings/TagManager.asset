@@ -7,6 +7,8 @@ TagManager:
   - EnemyShip
   - FieldEdge
   - SonarPoint
+  - SubmarineBody
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

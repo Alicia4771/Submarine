@@ -1124,7 +1124,7 @@ GameObject:
   - component: {fileID: 581059569}
   m_Layer: 0
   m_Name: SubmarineScopeObject
-  m_TagString: Untagged
+  m_TagString: SubmarineBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1609,6 +1609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05fec8252c4ee486fabb87247c144483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  EnemyBullet: {fileID: 0}
+  torpedoCooldown: 0
   first_dir: {x: 0, y: 0, z: 0}
   speed: 1
   torpedo_speed: 10
@@ -2565,6 +2567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05fec8252c4ee486fabb87247c144483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
+  EnemyBullet: {fileID: 0}
+  torpedoCooldown: 0
   first_dir: {x: 0, y: 0, z: 0}
   speed: 1
   torpedo_speed: 10
