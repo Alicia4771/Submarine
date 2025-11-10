@@ -13,7 +13,7 @@ public static class DataManager
 
     private static float timeLimit = 100f; // 残り制限時間(s)
 
-    private static float submarine_max_speed = 5;
+    private static float submarine_max_speed = 3;
 
     private static List<string> enemy_ships_list = new();
     private static List<string> torpedo_list = new();
@@ -76,6 +76,8 @@ public static class DataManager
     {
         if (speed_lever_value < 0) speed_lever_value /= 2;      // バックなら、速後を半減
         submarine_speed = submarine_max_speed * speed_lever_value;
+
+        Debug.Log("submarine_speed:" + submarine_speed);
     }
 
     /**

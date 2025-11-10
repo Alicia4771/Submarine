@@ -30,13 +30,13 @@ public class HandleObserver : MonoBehaviour
             if (rotation_x < 0)
             {
                 // 右旋回
-                Debug.Log("right" + rotation_x);
+                //Debug.Log("right" + rotation_x);
 
             }
             else
             {
                 // 左旋回
-                Debug.Log("left" + rotation_x);
+                //Debug.Log("left" + rotation_x);
             }
 
             submarineMove.turn(rotation_x);
@@ -44,7 +44,7 @@ public class HandleObserver : MonoBehaviour
         else
         {
             // 真っ直ぐ
-            Debug.Log("stop" + rotation_x);
+            //Debug.Log("stop" + rotation_x);
 
             submarineMove.turn(0);
         }
