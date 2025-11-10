@@ -75,8 +75,8 @@ public static class DataManager
      */
     public static void SetSubmarineSpeedLeverRatio(float speed_lever_value)
     {
-        if (speed_lever_value < 0) speed_lever_value /= 2;      // バックなら、速後を半減
         submarine_speed = submarine_max_speed * speed_lever_value;
+
 
         //Debug.Log("submarine_speed:" + submarine_speed);
     }

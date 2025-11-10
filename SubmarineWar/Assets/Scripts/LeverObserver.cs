@@ -85,12 +85,12 @@ public class LeverObserver : MonoBehaviour
 
             if (lever_position_diff < 0)    // 正方向
             {
-                DataManager.MoveSubmarineDepth(Mathf.Abs(lever_position_diff) / lever_movable_range_p);
+                DataManager.MoveSubmarineDepth((-1) * (Mathf.Abs(lever_position_diff) / lever_movable_range_p));
 
             }
             else
             {       // 負方向
-                DataManager.MoveSubmarineDepth((-1) * (Mathf.Abs(lever_position_diff) / lever_movable_range_m));
+                DataManager.MoveSubmarineDepth(Mathf.Abs(lever_position_diff) / lever_movable_range_m);
             }
         }
     }
