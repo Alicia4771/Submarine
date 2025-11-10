@@ -965,6 +965,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+--- !u!1 &218770640 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6698361833661657438, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+  m_PrefabInstance: {fileID: 1071473527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &226507578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,11 +1106,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226507578}
   m_CullTransparentMesh: 1
---- !u!1 &218770640 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6698361833661657438, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
-  m_PrefabInstance: {fileID: 1071473527}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &299639867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3926,6 +3926,26 @@ MonoBehaviour:
   m_Teleporting:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1255163402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6698361833661657438, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+  m_PrefabInstance: {fileID: 1355569976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1255163404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255163402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ff9dcd3fa304531aa10bedc19583ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeverObserver
+  type: 0
+  MaxLever: {fileID: 0}
+  MinDepthLever: {fileID: 0}
 --- !u!1 &1318679196
 GameObject:
   m_ObjectHideFlags: 0
@@ -4099,7 +4119,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 116272998247939392, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 788300961}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6698361833661657438, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1255163404}
   m_SourcePrefab: {fileID: 100100000, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
 --- !u!1 &1440944040
 GameObject:
@@ -5784,3 +5807,4 @@ SceneRoots:
   - {fileID: 189642553}
   - {fileID: 775885851}
   - {fileID: 865156902}
+  - {fileID: 9237980}
