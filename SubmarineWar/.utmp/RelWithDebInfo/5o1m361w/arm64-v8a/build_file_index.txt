@@ -1,0 +1,2 @@
+/Users/k24097kk/Unity/Submarine/SubmarineWar/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/CMakeLists.txt
+/Users/k24097kk/Unity/Submarine/SubmarineWar/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/CMakeLists.txt

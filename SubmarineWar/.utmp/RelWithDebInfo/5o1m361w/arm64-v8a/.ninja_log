@@ -1,0 +1,10 @@
+# ninja log v5
+0	1004	1762754116942365452	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	c226cb1c594fda34
+2	1016	1762754116946229801	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	1596322a0489e3f1
+1	1019	1762754116953585420	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	33ef85877faae681
+2	1028	1762754116970966763	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	de56a5b18f93d5ac
+1	1100	1762754117045827101	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	47611bff0e623d54
+3	1118	1762754117063409484	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	4deec65aa81068a
+2	1207	1762754117151404902	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	51fa11af00f22901
+0	1274	1762754117218298501	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	4444ee35d727c23e
+1274	1419	1762754117359981355	/Users/k24097kk/Unity/Submarine/SubmarineWar/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/5o1m361w/obj/arm64-v8a/libgame.so	a6b63d79d981b726
