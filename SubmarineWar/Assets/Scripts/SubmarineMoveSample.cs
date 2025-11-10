@@ -9,11 +9,13 @@ public class SubmarineMoveSample : MonoBehaviour
     private float torpedo_speed;    // 魚雷の速度
 
     private float brake = 3;   // 入力なし時の減速量
-    private float maxSpeed = 5;
+    private float maxSpeed;
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        maxSpeed = DataManager.GetSubmarineMaxSpeed();
     }
 
     void Update()
