@@ -7,11 +7,21 @@ public class GameManager : MonoBehaviour
     public GameObject enemyShipPrefab;
     // シーン遷移用のSceneLoader
     public SceneLoader sceneLoader;
+    
+    // インスペクターで NotificationManager をアタッチする
+    [SerializeField]
+    private NotificationManager notificationManager;
 
   　// Start is called once before the first execution of Update after the MonoBehaviour is created
   　void Start()
   　{
         Debug.Log("ゲーム開始");
+        
+        if (notificationManager != null)
+          {
+              // 5秒間だけメッセージを表示する
+              notificationManager.ShowMessage("GameStart", 5.0f);
+          }
 
     　   // DataManagerを初期化
     　   Debug.Log("初期化します");
@@ -63,12 +73,16 @@ public class GameManager : MonoBehaviour
           Debug.Log("ゲーム終了。シーン遷移を行う。");
           if (sceneLoader != null)
           {
-              sceneLoader.LoadScene("EndScene"); // 遷移先シーン名は適宜変更
+              // 10秒間だけメッセージを表示する
+              notificationManager.ShowMessage("GameEnd", 10.0f);
+              sceneLoader.LoadScene("EndScene");
           }
           else
           {
               Debug.LogError("SceneLoaderがアサインされていません。");
           }
-        }
+        return;
+      }
     }
-}
+    }
+
