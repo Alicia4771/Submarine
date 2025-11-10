@@ -76,6 +76,7 @@
     <Compile Include="Assets/VRTemplateAssets/Scripts/BezierCurve.cs" />
     <Compile Include="Assets/Scripts/SonarScript.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/LaunchProjectile.cs" />
+    <Compile Include="Assets/Scripts/TextDisplay.cs" />
     <Compile Include="Assets/Scripts/EnemyMove.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/HandSubsystemManager.cs" />
     <Compile Include="Assets/Scripts/SubmarineCameraControl.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets/Scripts/HandleObserver.cs" />
     <Compile Include="Assets/Scripts/TorpedoScript.cs" />
     <Compile Include="Assets/Scripts/BulletControler.cs" />
+    <Compile Include="Assets/Scripts/NotificationManager.cs" />
     <Compile Include="Assets/Scripts/GameManager.cs" />
     <Compile Include="Assets/Scripts/EnemyBulletControler.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/StepManager.cs" />
@@ -1339,10 +1341,6 @@
       <HintPath>Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.XR.Oculus.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.XR.Oculus.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Unity.Collections">
       <HintPath>Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
       <Private>False</Private>
@@ -1409,10 +1407,6 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
       <HintPath>Library/ScriptAssemblies/Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Unity.XR.Oculus">
-      <HintPath>Library/ScriptAssemblies/Unity.XR.Oculus.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
