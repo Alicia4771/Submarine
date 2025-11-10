@@ -24,7 +24,12 @@ public class TextDisplay : MonoBehaviour
       float currentSpeed = DataManager.GetSubmarineSpeed();
       float currentDepth = DataManager.GetSubmarineDepth();
 
+      if (remainingTime < 0f)
+      {
+          remainingTime = 0f; // 残り時間がマイナスにならないようにする
+      }
 
+      currentSpeed *= 3000f;
       // 2. 取得したfloat型の値を、string型（文字列）に変換します
       // "F2" は小数点以下2桁まで表示するフォーマット指定子です
       string timeString = remainingTime.ToString("F2");
@@ -35,17 +40,17 @@ public class TextDisplay : MonoBehaviour
       if (timeTextComponent != null)
       {
           // 例: "Time: 98.50" のように表示する
-          timeTextComponent.text = "TIME: " + timeString;
+          timeTextComponent.text = "TIME\n" + timeString + " s";
       }
 
       if (speedTextComponent != null)
       {
-          speedTextComponent.text = "SPEED: " + speedString;
+          speedTextComponent.text = "SPEED\n" + speedString + " km/s";
       }
 
       if (depthTextComponent != null)
       {
-          depthTextComponent.text = "DEPTH: " + depthString;
+          depthTextComponent.text = "DEPTH\n" + depthString + " m";
       }
 
     }
