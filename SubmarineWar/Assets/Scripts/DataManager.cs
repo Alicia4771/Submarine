@@ -14,6 +14,7 @@ public static class DataManager
     private static float timeLimit = 100f; // 残り制限時間(s)
 
     private static float submarine_max_speed = 3;
+    private static float submarine_max_depth = -100;
 
     private static List<string> enemy_ships_list = new();
     private static List<string> torpedo_list = new();
@@ -99,9 +100,10 @@ public static class DataManager
 
     public static void MoveSubmarineDepth(float depth_lever_value)
     {
-        
+        submarine_depth += depth_lever_value;
 
-        submarine_depth += 0;
+        if (submarine_depth > 0) submarine_depth = 0;
+        if (submarine_depth < submarine_max_depth) submarine_depth = submarine_max_depth;
     }
 
     /**

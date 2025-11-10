@@ -29,7 +29,7 @@ public class LeverObserver : MonoBehaviour
     private float lever_movable_range_p;    // レバーを正方向に動かせる範囲(定数)
     private float lever_movable_range_m;    // レバーを負方向に動かせる範囲(定数)
 
-    private float defalte_lever_movable_range = 30;
+    private float defalte_lever_movable_range = 20;
 
 
 
