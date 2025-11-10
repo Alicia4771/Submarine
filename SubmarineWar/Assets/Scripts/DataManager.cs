@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SocialPlatforms.Impl;
 
 public static class DataManager
 {
@@ -21,7 +22,9 @@ public static class DataManager
     public static void Initialize()
     {
         is_periscope_up = false;
+        score = 0;
         enemy_ships_list = new List<string>();
+        torpedo_list = new List<string>();
     }
 
     /**
