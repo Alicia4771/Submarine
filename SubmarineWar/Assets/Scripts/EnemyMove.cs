@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour
 
     private float lastTorpedoTime = 0f;
     [SerializeField, Tooltip("敵魚雷発射のクールタイム（秒）")]
-    private float torpedoCooldown = 1f;
+    private float torpedoCooldown = 10f;
 
     private Vector3 direction;  // 方向単位ベクトル
 
@@ -30,7 +30,7 @@ public class EnemyMove : MonoBehaviour
 
     private float discovery_point;
 
-    private float torpedo_launch_point = 200.0f; // 魚雷を発射するのに必要な発見ポイント
+    private float torpedo_launch_point = 100.0f; // 魚雷を発射するのに必要な発見ポイント
 
     [SerializeField, Tooltip("速度調整用")]
     private float speed_adjustment = 1;

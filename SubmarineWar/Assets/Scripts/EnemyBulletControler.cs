@@ -48,6 +48,17 @@ public class EnemyBulletControler : MonoBehaviour
       DeleteObject(gameObject, gameObject.name);
       DeleteObject(collision.gameObject, collision.gameObject.name);
     }
+    else if (collision.gameObject.CompareTag("SubmarineBody"))
+    {
+      Debug.Log("敵の攻撃が潜水艦に衝突しました");
+      // 残り時間を10秒減らす
+      float currentTime = DataManager.GetTimeLimit();
+      if (currentTime > 0f)
+      {
+        DataManager.SetTimeLimit(currentTime - 10f);
+      }
+      DeleteObject(gameObject, gameObject.name);
+    }
     else
     {
       Debug.Log("壁に衝突しました。");

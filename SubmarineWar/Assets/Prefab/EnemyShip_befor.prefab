@@ -153,6 +153,6 @@ MonoBehaviour:
   torpedoCooldown: 10
   first_dir: {x: 0, y: 0, z: 0}
   speed: 1
-  torpedo_speed: 200
+  torpedo_speed: 400
   speed_adjustment: 1
   depth_adjustment: 1
