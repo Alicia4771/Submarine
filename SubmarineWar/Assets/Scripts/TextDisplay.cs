@@ -29,7 +29,7 @@ public class TextDisplay : MonoBehaviour
           remainingTime = 0f; // 残り時間がマイナスにならないようにする
       }
 
-      currentSpeed *= 3000f;
+      currentSpeed *= 3000f / 50f; // 単位変換: Unityの単位(m/s) -> ゲーム内表示の単位(m/s)
       // 2. 取得したfloat型の値を、string型（文字列）に変換します
       // "F2" は小数点以下2桁まで表示するフォーマット指定子です
       string timeString = remainingTime.ToString("F2");
@@ -45,7 +45,7 @@ public class TextDisplay : MonoBehaviour
 
       if (speedTextComponent != null)
       {
-          speedTextComponent.text = "SPEED\n" + speedString + " km/s";
+          speedTextComponent.text = "SPEED\n" + speedString + " Knot";
       }
 
       if (depthTextComponent != null)
