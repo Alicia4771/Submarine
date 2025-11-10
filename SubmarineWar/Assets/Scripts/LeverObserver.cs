@@ -11,6 +11,9 @@ public class LeverObserver : MonoBehaviour
     [SerializeField]
     private Levertype type;
 
+    [SerializeField, Tooltip("監視するレバーオブジェクト(ここは絶対にセットする)")]
+    private Transform lever;
+
     [SerializeField, Tooltip("レバーを最大まで倒した時の位置のオブジェクト")]
     private GameObject MaxLever;
 
@@ -32,7 +35,9 @@ public class LeverObserver : MonoBehaviour
 
     void Start()
     {
-        zero_position = this.transform.rotation.x;
+        if (lever == null) lever = transform.Find("ControlLever");
+
+        zero_position = lever.rotation.x;
 
         if (MaxLever != null) max_position = MaxLever.transform.rotation.x;
         else max_position = zero_position + defalte_lever_movable_range;
@@ -55,7 +60,7 @@ public class LeverObserver : MonoBehaviour
 
     void Update()
     {
-        lever_position = this.transform.rotation.x;
+        lever_position = lever.rotation.x;
 
         if (type == Levertype.Speed)
         {
