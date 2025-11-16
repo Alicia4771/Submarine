@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         if (notificationManager != null)
           {
               // 5秒間だけメッセージを表示する
-              notificationManager.ShowMessage("GameStart", 5.0f);
+              notificationManager.ShowMessage("Game start. Seek and destroy the enemy ships!", 7.0f);
           }
 
     　   // DataManagerを初期化
