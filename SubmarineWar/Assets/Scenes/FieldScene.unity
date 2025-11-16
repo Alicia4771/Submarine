@@ -1661,6 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverObserver
   type: 1
+  lever: {fileID: 0}
   MaxLever: {fileID: 0}
   MinDepthLever: {fileID: 0}
 --- !u!1001 &441087506
@@ -2929,7 +2930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300.64, y: -99.43}
+  m_AnchoredPosition: {x: 300.64, y: -99.76}
   m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1000474568
@@ -3597,7 +3598,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227419891}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3919,6 +3920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverObserver
   type: 0
+  lever: {fileID: 0}
   MaxLever: {fileID: 0}
   MinDepthLever: {fileID: 0}
 --- !u!1 &1318679196
@@ -4133,7 +4135,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440944040}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 2.48}
+  m_LocalPosition: {x: 0, y: 0, z: 0.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4141,8 +4143,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.615, y: 1.46}
-  m_SizeDelta: {x: 0.77, y: 0}
+  m_AnchoredPosition: {x: -2.615, y: 1.48}
+  m_SizeDelta: {x: 0.77, y: 0.039999902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1440944042
 MonoBehaviour:
@@ -4733,7 +4735,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758638218}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -1.995}
+  m_LocalPosition: {x: 0, y: 0, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4741,7 +4743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.7350001, y: 1.4375}
+  m_AnchoredPosition: {x: -2.7350001, y: 1.44}
   m_SizeDelta: {x: 0.53, y: 0.125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758638220
