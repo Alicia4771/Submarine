@@ -74,8 +74,9 @@ public class GameManager : MonoBehaviour
           if (sceneLoader != null)
           {
               // 10秒間だけメッセージを表示する
-              notificationManager.ShowMessage("GameEnd", 10.0f);
-              sceneLoader.LoadScene("EndScene");
+              notificationManager.ShowMessage("Game Clear. Move to Score Screen", 10.0f);
+              // sceneLoader.LoadScene("EndScene");
+              StartCoroutine(WaitAndLoadEndScene());
           }
           else
           {
@@ -84,5 +85,11 @@ public class GameManager : MonoBehaviour
         return;
       }
     }
+    private System.Collections.IEnumerator WaitAndLoadEndScene()
+    {
+      yield return new WaitForSeconds(10f);
+      sceneLoader.LoadScene("EndScene");
+    }
+
     }
 
