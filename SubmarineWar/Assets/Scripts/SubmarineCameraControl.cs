@@ -1,24 +1,30 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using UnityEngine.SpatialTracking; // TrackedPoseDriverのために必要
 
-// 💡 クラス名をユニークな名前に変更
 public class SubmarineCameraControl : MonoBehaviour
 {
     // ==========================================================
-    // 外部連携用の変数（Inspectorで設定）
+    // 外部連携用の変数（Inspectorで設定必須）
     // ==========================================================
 
-    // 既存の CameraManager クラスへの参照を追加
-    public CameraManager cameraManager;
+    public CameraManager cameraManager; // 既存の CameraManager クラスへの参照 (切り替えロジック本体)
 
-    // 中指ボタンのアクション（内部へ戻る）
-    public InputActionReference returnAction;
+    // 💡 修正箇所: 左右両方の中指ボタンアクションを追加
+    public InputActionReference returnActionRight;
+    public InputActionReference returnActionLeft;
 
-    // TorpedoLauncherから状態を参照できるように公開 (XR Rig移動は不要なため削除)
+    // TorpedoLauncherから状態を参照できるように公開
     [HideInInspector] public bool isPeriscopeView = false;
 
-    // (アンカー、XR Rig、ExistingCameraの変数は、XR Rig移動が不要なため全て削除)
+    // 🚨 Step 3 統合: 必要な参照
+    public TrackedPoseDriver mainCameraPoseDriver; // Main Camera の Tracked Pose Driver
+    public GameObject leftControllerVisual;        // 左コントローラーの見た目
+    public GameObject rightControllerVisual;       // 右コントローラーの見た目
+
+    // 深度制限値 (Step 1のために残す)
+    private const float MAX_DEPTH = 5.0f;
+
 
     // ==========================================================
     // ライフサイクルとアクション接続
@@ -26,27 +32,47 @@ public class SubmarineCameraControl : MonoBehaviour
 
     void Start()
     {
-        // 💡 既存の CameraManager が有効か確認し、無効なら警告
         if (cameraManager == null)
         {
             Debug.LogError("Camera Managerが設定されていません。切り替えロジックが実行できません。");
             return;
         }
 
-        // 中指ボタンアクションの接続 (戻る機能)
-        if (returnAction != null && returnAction.action != null)
+        // 💡 修正箇所: 右コントローラーの中指ボタンを接続
+        if (returnActionRight != null && returnActionRight.action != null)
         {
-            returnAction.action.performed += OnReturnActionPerformed;
-            returnAction.action.Enable();
+            returnActionRight.action.performed += OnReturnActionPerformed;
+            returnActionRight.action.Enable();
         }
+
+        // 💡 修正箇所: 左コントローラーの中指ボタンを接続
+        if (returnActionLeft != null && returnActionLeft.action != null)
+        {
+            returnActionLeft.action.performed += OnReturnActionPerformed;
+            returnActionLeft.action.Enable();
+        }
+
         isPeriscopeView = false;
+
+        // 💡 初期状態ではトラッキングを有効にする
+        if (mainCameraPoseDriver != null)
+        {
+            mainCameraPoseDriver.enabled = true;
+        }
     }
 
     void OnDestroy()
     {
-        if (returnAction != null && returnAction.action != null)
+        // 💡 修正箇所: 右コントローラーの購読解除
+        if (returnActionRight != null && returnActionRight.action != null)
         {
-            returnAction.action.performed -= OnReturnActionPerformed;
+            returnActionRight.action.performed -= OnReturnActionPerformed;
+        }
+
+        // 💡 修正箇所: 左コントローラーの購読解除
+        if (returnActionLeft != null && returnActionLeft.action != null)
+        {
+            returnActionLeft.action.performed -= OnReturnActionPerformed;
         }
     }
 
@@ -54,9 +80,16 @@ public class SubmarineCameraControl : MonoBehaviour
     // 💡 VR入力トリガー
     // ==========================================================
 
-    // 1. 潜望鏡をタップした際に呼ばれるメソッド (XR Simple Interactableから接続)
+    // 1. 潜望鏡をタップした際に呼ばれるメソッド (外部の XR Simple Interactableから接続)
     public void SwitchToPeriscopeByTap()
     {
+        // 深度チェック (Step 1のロジック)
+        if (DataManager.GetSubmarineDepth() >= MAX_DEPTH)
+        {
+            Debug.Log("潜望鏡使用不可：深度が深すぎます。");
+            return;
+        }
+
         // 内部視点にいる場合のみ、潜望鏡視点へ切り替え
         if (!isPeriscopeView)
         {
@@ -75,17 +108,33 @@ public class SubmarineCameraControl : MonoBehaviour
     }
 
     // ==========================================================
-    // 💡 カメラ切り替えと状態更新のロジック（既存ロジックの呼び出し）
+    // 💡 カメラ切り替えとトラッキング制御ロジック
     // ==========================================================
 
     private void ToggleViewAndCallManager(bool toPeriscope)
     {
         isPeriscopeView = toPeriscope; // 状態を設定
 
-        // 💡 既存の CameraManager の切り替えメソッドを呼び出す
-        // CameraManager.csの修正版（ToggleCameraLogic()を追加したもの）が必要
-        cameraManager.ToggleCameraLogic();
+        // 🚨 Step 3: トラッキングの固定化とコントローラーのビジュアル制御 🚨
 
-        Debug.Log("カメラが " + (isPeriscopeView ? "潜望鏡" : "内部") + " 視点に切り替わりました。");
+        // 1. ヘッドセットの回転を有効/無効化（固定化）
+        if (mainCameraPoseDriver != null)
+        {
+            // 潜望鏡視点 (true) なら、HMDの動きを伝えるコンポーネントを無効化（画面固定）
+            mainCameraPoseDriver.enabled = !toPeriscope;
+        }
+
+        // 2. コントローラーのビジュアルを非表示
+        if (leftControllerVisual != null) leftControllerVisual.SetActive(!toPeriscope);
+        if (rightControllerVisual != null) rightControllerVisual.SetActive(!toPeriscope);
+
+
+        // 3. 既存の CameraManager の切り替えメソッドを呼び出し
+        if (cameraManager != null)
+        {
+            cameraManager.ToggleCameraLogic();
+        }
+
+        Debug.Log("カメラが " + (isPeriscopeView ? "潜望鏡(固定)" : "内部(追従)") + " 視点に切り替わりました。");
     }
 }

@@ -1388,6 +1388,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Handle
       objectReference: {fileID: 0}
+    - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_UseSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_Spring.spring
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1661,6 +1673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverObserver
   type: 1
+  lever: {fileID: 0}
   MaxLever: {fileID: 0}
   MinDepthLever: {fileID: 0}
 --- !u!1001 &441087506
@@ -2598,6 +2611,7 @@ GameObject:
   - component: {fileID: 843967727}
   - component: {fileID: 843967728}
   - component: {fileID: 843967729}
+  - component: {fileID: 843967730}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2632,8 +2646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94542f6077de7460a87d643d1e08e603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletLauncher
-  fireActionRight: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  fireActionLeft: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  fireActionRight: {fileID: -3599823989380923159, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
+  fireActionLeft: {fileID: -3599823989380923159, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
   torpedoPrefab: {fileID: 2023642377354847684, guid: 4b4197d57ad9a498f803899609713b21, type: 3}
   firePoint: {fileID: 1159039947}
   fireForce: 50
@@ -2667,6 +2681,25 @@ MonoBehaviour:
   timeTextComponent: {fileID: 1227419893}
   speedTextComponent: {fileID: 1758638220}
   depthTextComponent: {fileID: 1440944042}
+--- !u!114 &843967730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843967724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 572e2dc0d92754c599fdda35fd0b3e12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SubmarineCameraControl
+  cameraManager: {fileID: 1629751100}
+  returnActionRight: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  returnActionLeft: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  isPeriscopeView: 0
+  mainCameraPoseDriver: {fileID: 0}
+  leftControllerVisual: {fileID: 0}
+  rightControllerVisual: {fileID: 0}
 --- !u!1 &854270348
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,9 +3160,9 @@ MonoBehaviour:
   m_FirstSelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1629751102}
-        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
-        m_MethodName: ToggleCameraLogic
+      - m_Target: {fileID: 843967730}
+        m_TargetAssemblyTypeName: SubmarineCameraControl, Assembly-CSharp
+        m_MethodName: SwitchToPeriscopeByTap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3919,6 +3952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverObserver
   type: 0
+  lever: {fileID: 0}
   MaxLever: {fileID: 0}
   MinDepthLever: {fileID: 0}
 --- !u!1 &1318679196
@@ -4409,6 +4443,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6023845536023055447, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
   m_PrefabInstance: {fileID: 336794122}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1607102225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 441087506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1627511694
 GameObject:
   m_ObjectHideFlags: 0
@@ -4551,8 +4590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8419a5d0eba65469785d9d7f0bbda8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
-  submarineCamera: {fileID: 0}
-  mainCamera: {fileID: 0}
+  submarineCamera: {fileID: 177895796}
+  mainCamera: {fileID: 1607102225}
 --- !u!4 &1629751101
 Transform:
   m_ObjectHideFlags: 0
@@ -4580,8 +4619,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8419a5d0eba65469785d9d7f0bbda8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraManager
-  submarineCamera: {fileID: 0}
-  mainCamera: {fileID: 0}
+  submarineCamera: {fileID: 177895796}
+  mainCamera: {fileID: 1607102225}
 --- !u!1 &1642124111
 GameObject:
   m_ObjectHideFlags: 0
