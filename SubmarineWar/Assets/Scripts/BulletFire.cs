@@ -8,6 +8,9 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
     // 外部連携用の変数（Inspectorで設定）
     // ==========================================================
 
+    // 💡 修正箇所: SubmarineCameraControl への参照を公開で宣言します
+    public SubmarineCameraControl cameraSwitcher;
+
     // 💡 右コントローラーのデジタルアクションを設定
     public InputActionReference fireActionRight;
 
@@ -30,14 +33,14 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
 
     void Start() // ゲーム開始時に一度だけ実行される
     {
-        // 右コントローラーの接続
+        // ... (右コントローラーの接続コードは省略) ...
         if (fireActionRight != null && fireActionRight.action != null)
         {
             fireActionRight.action.performed += OnFireTorpedo;
             fireActionRight.action.Enable();
         }
 
-        // 💡 左コントローラーの接続
+        // ... (左コントローラーの接続コードは省略) ...
         if (fireActionLeft != null && fireActionLeft.action != null)
         {
             fireActionLeft.action.performed += OnFireTorpedo;
@@ -47,13 +50,11 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
 
     void OnDestroy() // このスクリプトを持つオブジェクトが破壊される直前に実行される
     {
-        // 右コントローラーの購読解除
+        // ... (購読解除コードは省略) ...
         if (fireActionRight != null && fireActionRight.action != null)
         {
             fireActionRight.action.performed -= OnFireTorpedo;
         }
-
-        // 💡 左コントローラーの購読解除
         if (fireActionLeft != null && fireActionLeft.action != null)
         {
             fireActionLeft.action.performed -= OnFireTorpedo;
@@ -67,9 +68,10 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
     // どちらのコントローラーのアクションにも接続されるメインのメソッド
     public void OnFireTorpedo(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        // 🚨 修正箇所: 潜望鏡視点 (isPeriscopeView == true) の場合のみ、発射を許可する条件を追加 🚨
+        if (context.performed && cameraSwitcher != null && cameraSwitcher.isPeriscopeView)
         {
-            Debug.Log("発射ボタンが押されました！");
+            Debug.Log("潜望鏡視点から魚雷を発射！");
 
             // --- 続くUnity班の仕事（球の発射ロジック） ---
 
@@ -88,6 +90,102 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
         }
     }
 }
+
+
+
+//using UnityEngine;
+//using UnityEngine.XR.Interaction.Toolkit;
+//using UnityEngine.InputSystem;
+
+//public class BulletFire : MonoBehaviour // Unityのゲームオブジェクトにアタッチするための基本クラス
+//{
+//    // ==========================================================
+//    // 外部連携用の変数（Inspectorで設定）
+//    // ==========================================================
+
+//    // 💡 右コントローラーのデジタルアクションを設定
+//    public InputActionReference fireActionRight;
+
+//    // 💡 左コントローラーのデジタルアクションを設定
+//    public InputActionReference fireActionLeft;
+
+//    // 発射する弾（球）のモデルを設定 (Assets/Prefabsからドラッグ)
+//    public GameObject torpedoPrefab;
+
+//    // 弾が生成されるシーン内の位置と方向を示すオブジェクトを設定 (Hierarchyからドラッグ)
+//    public Transform firePoint;
+
+//    // 発射時に弾に与える力の強さ (数値で設定)
+//    public float fireForce = 50f;
+
+
+//    // ==========================================================
+//    // ライフサイクルメソッド: 入力アクションの接続と切断（イベントの購読）
+//    // ==========================================================
+
+//    void Start() // ゲーム開始時に一度だけ実行される
+//    {
+//        // 右コントローラーの接続
+//        if (fireActionRight != null && fireActionRight.action != null)
+//        {
+//            fireActionRight.action.performed += OnFireTorpedo;
+//            fireActionRight.action.Enable();
+//        }
+
+//        // 💡 左コントローラーの接続
+//        if (fireActionLeft != null && fireActionLeft.action != null)
+//        {
+//            fireActionLeft.action.performed += OnFireTorpedo;
+//            fireActionLeft.action.Enable();
+//        }
+//    }
+
+//    void OnDestroy() // このスクリプトを持つオブジェクトが破壊される直前に実行される
+//    {
+//        // 右コントローラーの購読解除
+//        if (fireActionRight != null && fireActionRight.action != null)
+//        {
+//            fireActionRight.action.performed -= OnFireTorpedo;
+//        }
+
+//        // 💡 左コントローラーの購読解除
+//        if (fireActionLeft != null && fireActionLeft.action != null)
+//        {
+//            fireActionLeft.action.performed -= OnFireTorpedo;
+//        }
+//    }
+
+//    // ==========================================================
+//    // 💡 センサー班の仕事: 入力イベントを受け取り、発射ロジックを実行
+//    // ==========================================================
+
+//    // どちらのコントローラーのアクションにも接続されるメインのメソッド
+//    public void OnFireTorpedo(InputAction.CallbackContext context)
+//    {
+//        if (context.performed && cameraSwitcher != null && cameraSwitcher.isPeriscopeView)
+//        {
+//            if (context.performed)
+//            {
+//                Debug.Log("発射ボタンが押されました！");
+
+//                // --- 続くUnity班の仕事（球の発射ロジック） ---
+
+//                if (torpedoPrefab != null && firePoint != null)
+//                {
+//                    // 1. 弾の生成 (Instantiate)
+//                    GameObject torpedo = Instantiate(torpedoPrefab, firePoint.position, firePoint.rotation);
+
+//                    // 2. 弾の発射 (AddForce)
+//                    Rigidbody rb = torpedo.GetComponent<Rigidbody>();
+//                    if (rb != null)
+//                    {
+//                        rb.AddForce(firePoint.forward * fireForce, ForceMode.Impulse);
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
 //using UnityEngine;
 //using UnityEngine.XR.Interaction.Toolkit;
