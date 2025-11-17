@@ -23,7 +23,7 @@ public class SubmarineCameraControl : MonoBehaviour
     public GameObject rightControllerVisual;       // 右コントローラーの見た目
 
     // 深度制限値 (Step 1のために残す)
-    private const float MAX_DEPTH = 5.0f;
+    private const float MAX_DEPTH = -5.0f;
 
 
     // ==========================================================
@@ -84,7 +84,7 @@ public class SubmarineCameraControl : MonoBehaviour
     public void SwitchToPeriscopeByTap()
     {
         // 深度チェック (Step 1のロジック)
-        if (DataManager.GetSubmarineDepth() >= MAX_DEPTH)
+        if (DataManager.GetSubmarineDepth() <= MAX_DEPTH)
         {
             Debug.Log("潜望鏡使用不可：深度が深すぎます。");
             return;
