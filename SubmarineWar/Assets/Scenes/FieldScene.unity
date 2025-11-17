@@ -1388,6 +1388,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Handle
       objectReference: {fileID: 0}
+    - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_UseSpring
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_Spring.damper
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_Spring.spring
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1661,6 +1673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverObserver
   type: 1
+  lever: {fileID: 0}
   MaxLever: {fileID: 0}
   MinDepthLever: {fileID: 0}
 --- !u!1001 &441087506
@@ -3919,6 +3932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeverObserver
   type: 0
+  lever: {fileID: 0}
   MaxLever: {fileID: 0}
   MinDepthLever: {fileID: 0}
 --- !u!1 &1318679196
