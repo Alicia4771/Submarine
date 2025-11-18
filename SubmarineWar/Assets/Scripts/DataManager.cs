@@ -26,6 +26,8 @@ public static class DataManager
         score = 0;
         enemy_ships_list = new List<string>();
         torpedo_list = new List<string>();
+        timeLimit = 100f;
+        score = 0;
     }
 
     /**
