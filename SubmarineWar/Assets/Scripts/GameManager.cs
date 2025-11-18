@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
         if (notificationManager != null)
           {
               // 5秒間だけメッセージを表示する
-              notificationManager.ShowMessage("GameStart", 5.0f);
+              notificationManager.ShowMessage("Game start. Seek and destroy the enemy ships!", 7.0f);
           }
 
     　   // DataManagerを初期化
@@ -74,8 +75,9 @@ public class GameManager : MonoBehaviour
           if (sceneLoader != null)
           {
               // 10秒間だけメッセージを表示する
-              notificationManager.ShowMessage("GameEnd", 10.0f);
-              sceneLoader.LoadScene("EndScene");
+              notificationManager.ShowMessage("Game Clear. Move to Score Screen", 10.0f);
+              // sceneLoader.LoadScene("EndScene");
+              StartCoroutine(WaitAndLoadEndScene());
           }
           else
           {
@@ -84,5 +86,11 @@ public class GameManager : MonoBehaviour
         return;
       }
     }
+    private System.Collections.IEnumerator WaitAndLoadEndScene()
+    {
+      yield return new WaitForSeconds(10f);
+      SceneManager.LoadScene("EndScene", LoadSceneMode.Single);
+    }
+
     }
 
