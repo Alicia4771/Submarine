@@ -53,6 +53,7 @@
     <Compile Include="Assets/VRTemplateAssets/Scripts/BooleanToggleVisualsController.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/RayAttachModifier.cs" />
     <Compile Include="Assets/Scripts/SubmarineMoveSample.cs" />
+    <Compile Include="Assets/Scripts/ScoreDisplay.cs" />
     <Compile Include="Assets/VRTemplateAssets/Scripts/XRPokeFollowAffordanceFill.cs" />
     <Compile Include="Assets/Scripts/UtilFunction.cs" />
     <Compile Include="Assets/Scripts/LeverObserver.cs" />
@@ -1135,6 +1136,10 @@
       <HintPath>Library/ScriptAssemblies/Unity.XR.CoreUtils.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
       <Private>False</Private>
@@ -1421,6 +1426,10 @@
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.AIIntegration.Editor">
+      <HintPath>Library/ScriptAssemblies/Unity.2D.Sprite.AIIntegration.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor.Shared">
