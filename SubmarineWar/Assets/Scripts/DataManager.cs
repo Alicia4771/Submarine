@@ -13,7 +13,7 @@ public static class DataManager
 
     private static float timeLimit = 100f; // 残り制限時間(s)
 
-    private static float submarine_max_speed = 20;
+    private static float submarine_max_speed = 5;
     private static float submarine_max_depth = -100;
 
     private static List<string> enemy_ships_list = new();
@@ -320,11 +320,11 @@ public static class DataManager
     */
     public static float GetTimeLimit()
     {
-      return timeLimit;
+        return timeLimit;
     }
 
-  public static void SetTimeLimit(float time)
-  {
-    timeLimit = time;
-  }
+    public static void SetTimeLimit(float time)
+    {
+        timeLimit = time;
+    }
 }
