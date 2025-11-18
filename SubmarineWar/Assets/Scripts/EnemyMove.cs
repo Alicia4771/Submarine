@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+//using System.Numerics;
 
 public class EnemyMove : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class EnemyMove : MonoBehaviour
     [SerializeField, Tooltip("船が進む速度")]
     private float speed;
 
+    private float brake = 0;        // 進む時にかかる減衰
+    private float maxSpeed = 2f;     // 最大速度
+
     [SerializeField, Tooltip("魚雷が進む速度")]
     private float torpedo_speed;
 
@@ -30,16 +34,16 @@ public class EnemyMove : MonoBehaviour
 
     private float discovery_point;
 
-    private float torpedo_launch_point = 100.0f; // 魚雷を発射するのに必要な発見ポイント
+    private float torpedo_launch_point = 200.0f; // 魚雷を発射するのに必要な発見ポイント
 
-    [SerializeField, Tooltip("速度調整用")]
-    private float speed_adjustment = 1;
-    
-    [SerializeField, Tooltip("深度調整用")]
-    private float depth_adjustment = 1;
+    [Tooltip("速度調整用")]
+    private float speed_adjustment = 20;
+
+    [Tooltip("深度調整用")]
+    private float depth_adjustment = 2;
 
     // [SerializeField, Tooltip("潜望鏡が上がっているときの加点")]
-    private float scope_point = 50.0f; // 潜望鏡が上がっているときの加点
+    private float scope_point = 30.0f; // 潜望鏡が上がっているときの加点
 
 
     void Start()
@@ -59,6 +63,15 @@ public class EnemyMove : MonoBehaviour
     void Update()
     {
         rigidbody.AddForce(direction * speed, ForceMode.Force);
+        // 速度を少し減衰させる
+        rigidbody.linearVelocity = Vector3.MoveTowards(rigidbody.linearVelocity, Vector3.zero, brake * Time.fixedDeltaTime);
+        // 速度上限を設定
+        Vector3 v = rigidbody.linearVelocity;
+        if (v.sqrMagnitude > maxSpeed * maxSpeed)
+        {
+            rigidbody.linearVelocity = v.normalized * maxSpeed;
+        }
+
 
         Vector3 ship_pos = transform.position;          // 自身の座標を取得
         Vector3 submarine_pos = DataManager.GetSubmarinePosition(); // 潜水艦の座標を取得
@@ -70,9 +83,10 @@ public class EnemyMove : MonoBehaviour
         float distance = Mathf.Sqrt(Mathf.Pow(ship_pos.x - submarine_pos.x, 2) + Mathf.Pow(ship_pos.z - submarine_pos.z, 2));
 
         discovery_point = 0;
-        discovery_point += (-1) * (1 / 2) * distance + detection_radius;
+        //discovery_point += (-1) * (1 / 2) * distance + detection_radius;
+        discovery_point += 10000 / distance;
         discovery_point += submarine_speed * speed_adjustment;
-        discovery_point += (-1) * submarine_depth * depth_adjustment;
+        discovery_point += submarine_depth * depth_adjustment;
         if (is_periscope_up) discovery_point += scope_point;
 
         // クールタイム判定
@@ -120,7 +134,7 @@ public class EnemyMove : MonoBehaviour
      * 敵が潜水艦に向かって魚雷を発射する
      */
     private void LaunchTorpedo(Vector3 dir)
-  {
+    {
         // if (EnemyBullet == null)
         // {
         //     Debug.LogError($"EnemyBulletがアサインされていません: {gameObject.name}");
