@@ -1381,6 +1381,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6175025599199152842, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_AngularDamping
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6439720876272393456, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1395,11 +1399,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
       propertyPath: m_Spring.damper
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
       propertyPath: m_Spring.spring
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
