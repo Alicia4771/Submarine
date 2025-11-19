@@ -1119,6 +1119,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 12786036}
     m_Modifications:
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_UseSpring
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_Spring.damper
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_Spring.spring
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132319282422474157, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_AngularDamping
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5410800360413652856, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.7196
@@ -1381,6 +1401,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6175025599199152842, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_AngularDamping
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 6439720876272393456, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1395,11 +1419,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
       propertyPath: m_Spring.damper
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
       propertyPath: m_Spring.spring
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4230,6 +4254,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 12786036}
     m_Modifications:
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_UseSpring
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_Limits.min
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_Spring.damper
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546960332892987302, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_Spring.spring
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132319282422474157, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_AngularDamping
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 5410800360413652856, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.7196
