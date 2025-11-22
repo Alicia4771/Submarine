@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
           if (sceneLoader != null)
           {
               // 10秒間だけメッセージを表示する
-              notificationManager.ShowMessage("Game Clear. Move to Score Screen", 10.0f);
+              notificationManager.ShowMessage("Mission complete. Moving to results.", 10.0f);
               // sceneLoader.LoadScene("EndScene");
               StartCoroutine(WaitAndLoadEndScene());
           }
