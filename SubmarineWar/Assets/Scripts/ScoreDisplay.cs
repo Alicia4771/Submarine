@@ -19,7 +19,7 @@ public class ScoreDisplay : MonoBehaviour
         // 3. Textコンポーネントの .text プロパティに代入します
         if (ScoreComponent != null)
         {
-            ScoreComponent.text = "Game Clear!\n\nScore " + finalScore.ToString() + " pt";
+            ScoreComponent.text = "Game Clear!\nScore " + finalScore.ToString() + " pt";
         }
     }
 }
