@@ -28,6 +28,8 @@ public static class DataManager
         torpedo_list = new List<string>();
         timeLimit = 100f;
         score = 0;
+        submarine_speed = 0;
+        submarine_depth = 0;
     }
 
     /**
