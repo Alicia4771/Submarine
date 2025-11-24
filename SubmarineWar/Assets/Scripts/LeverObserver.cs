@@ -29,7 +29,7 @@ public class LeverObserver : MonoBehaviour
     private float lever_movable_range_p;    // レバーを正方向に動かせる範囲(定数)
     private float lever_movable_range_m;    // レバーを負方向に動かせる範囲(定数)
 
-    private float defalte_lever_movable_range = 20;
+    private float defalte_lever_movable_range = 30;
 
 
 
@@ -42,7 +42,7 @@ public class LeverObserver : MonoBehaviour
         if (MaxLever != null) max_position = MaxLever.transform.rotation.x;
         else max_position = zero_position + defalte_lever_movable_range;
 
-        if (type == Levertype.Speed) lever_movable_range = zero_position - max_position;
+        if (type == Levertype.Speed) lever_movable_range = max_position - zero_position;
         else if (type == Levertype.Depth)
         {
             if (MinDepthLever != null) min_position = MinDepthLever.transform.rotation.x;
@@ -69,8 +69,10 @@ public class LeverObserver : MonoBehaviour
             //if (lever_position < max_position) this.transform.rotation = new Quaternion(max_position, 0, 0, 0); lever_position = max_position;
 
             float lever_ratio = Mathf.Abs((lever_position - zero_position) / lever_movable_range);
+            if (lever_ratio <= 0.001) lever_ratio = 0;
+            lever_ratio *= 100;
 
-            //Debug.Log(lever_ratio);
+            Debug.Log(lever_ratio);
 
             DataManager.SetSubmarineSpeedLeverRatio(lever_ratio);
 
