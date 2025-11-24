@@ -6,6 +6,7 @@ public static class DataManager
 {
 
     private static Vector3 submarine_position; // 潜水艦の座標
+    private static float submarine_rotation;    // 潜水艦の向き（y軸）
     private static float submarine_speed;    // 潜水艦の速度
     private static float submarine_depth;    // 潜水艦の深度
     private static bool is_periscope_up;   // 潜望鏡が上がっているかどうか
@@ -57,6 +58,16 @@ public static class DataManager
     public static float GetSubmarineSpeed()
     {
         return submarine_speed;
+    }
+
+    public static void SetSubmarineRotation(float rotation)
+    {
+        submarine_rotation = rotation;
+    }
+
+    public static float GetSubmarineRotation()
+    {
+        return submarine_rotation;
     }
 
     /**
