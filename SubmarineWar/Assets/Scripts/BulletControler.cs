@@ -67,6 +67,12 @@ public class BulletControler : MonoBehaviour
       Debug.Log("敵魚雷に衝突しました。");
       // 弾の消去
       Destroy(gameObject);
+    }// 自分の魚雷に衝突した時
+    else if (collision.gameObject.CompareTag("MyBullet"))
+    {
+      Debug.Log("自分の魚雷に衝突しました。");
+      // 弾の消去
+      Destroy(gameObject);
     }
     
   }

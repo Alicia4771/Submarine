@@ -10,6 +10,7 @@ TagManager:
   - SubmarineBody
   - EnemyBullet
   - StageWall
+  - MyBullet
   layers:
   - Default
   - TransparentFX
