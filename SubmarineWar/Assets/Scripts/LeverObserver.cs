@@ -70,7 +70,7 @@ public class LeverObserver : MonoBehaviour
 
             float lever_ratio = Mathf.Abs((lever_position - zero_position) / lever_movable_range);
             if (lever_ratio <= 0.001) lever_ratio = 0;
-            lever_ratio *= 100;
+            lever_ratio *= 10;
 
             Debug.Log(lever_ratio);
 
