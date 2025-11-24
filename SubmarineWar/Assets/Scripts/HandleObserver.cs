@@ -22,7 +22,7 @@ public class HandleObserver : MonoBehaviour
     void Update()
     {
         handle_rotation_quaternion = Handle.rotation;
-        float rotation_x = handle_rotation_quaternion.z;
+        float rotation_x = (-1) * handle_rotation_quaternion.z;
         //float rotation_x = Mathf.DeltaAngle(0f, Handle.localEulerAngles.x);
 
         if (!(Mathf.Abs(rotation_x) < stop_range))
