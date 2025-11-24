@@ -29,6 +29,8 @@ public class SubmarineMoveSample : MonoBehaviour
         speed = DataManager.GetSubmarineSpeed();
         depth = DataManager.GetSubmarineDepth();
 
+        DataManager.SetSubmarineRotation(this.transform.rotation.y);
+
         streat();
     }
 
@@ -36,11 +38,13 @@ public class SubmarineMoveSample : MonoBehaviour
 
     private void streat()
     {
+        Debug.Log("speed:" + speed);
+
         Vector3 move_direction = transform.forward * speed;
         if (speed != 0) rigidbody.AddForce(move_direction, ForceMode.Impulse);
 
         // 速度を少し減衰させる
-        // rigidbody.linearVelocity = Vector3.MoveTowards(rigidbody.linearVelocity, Vector3.zero, brake * Time.fixedDeltaTime);
+        //rigidbody.linearVelocity = Vector3.MoveTowards(rigidbody.linearVelocity, Vector3.zero, brake * Time.fixedDeltaTime);
         // 強いブレーキ
         if (speed == 0) rigidbody.linearVelocity = Vector3.MoveTowards(rigidbody.linearVelocity, Vector3.zero, stop_brake * Time.fixedDeltaTime);
 
