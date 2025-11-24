@@ -85,8 +85,8 @@ public class SonarScript : MonoBehaviour
         if (displayList == null) return false;
         if (point == null) return false;
 
-        float sin = Mathf.Sin((-1) * submarine_rotation * ((float)Math.PI / 180));
-        float cos = Mathf.Cos((-1) * submarine_rotation * ((float)Math.PI / 180));
+        float sin = Mathf.Sin(submarine_rotation * ((float)Math.PI / 180));
+        float cos = Mathf.Cos(submarine_rotation * ((float)Math.PI / 180));
 
         for (int i = 0; i < displayList.Count; i++)
         {
