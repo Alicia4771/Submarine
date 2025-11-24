@@ -29,7 +29,8 @@ public class SubmarineMoveSample : MonoBehaviour
         speed = DataManager.GetSubmarineSpeed();
         depth = DataManager.GetSubmarineDepth();
 
-        DataManager.SetSubmarineRotation(this.transform.rotation.y);
+        DataManager.SetSubmarineRotation(Mathf.Floor(this.transform.rotation.eulerAngles.y));
+        //Debug.Log("rot:"+ this.transform.rotation.eulerAngles.y);
 
         streat();
     }
@@ -38,7 +39,7 @@ public class SubmarineMoveSample : MonoBehaviour
 
     private void streat()
     {
-        Debug.Log("speed:" + speed);
+        //Debug.Log("speed:" + speed);
 
         Vector3 move_direction = transform.forward * speed;
         if (speed != 0) rigidbody.AddForce(move_direction, ForceMode.Impulse);
