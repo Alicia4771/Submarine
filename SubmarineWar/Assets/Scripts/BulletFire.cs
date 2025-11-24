@@ -26,6 +26,10 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
     // 発射時に弾に与える力の強さ (数値で設定)
     public float fireForce = 50f;
 
+    // 🚨 VR実機対応: 代替入力手段として直接的なコントローラーチェックを追加
+    [Header("VR実機対応デバッグ")]
+    public bool enableDirectControllerInput = true; // Inspector でON/OFF切り替え可能
+
 
     // ==========================================================
     // ライフサイクルメソッド: 入力アクションの接続と切断（イベントの購読）
@@ -33,18 +37,118 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
 
     void Start() // ゲーム開始時に一度だけ実行される
     {
-        // ... (右コントローラーの接続コードは省略) ...
+        // 🚨 VR実機デバッグ用: 初期化状況をログ出力
+        Debug.Log("=== BulletFire 初期化開始 ===");
+        
+        // 右コントローラーの接続とデバッグ
         if (fireActionRight != null && fireActionRight.action != null)
         {
+            Debug.Log("右コントローラーのアクションを設定: " + fireActionRight.action.name);
             fireActionRight.action.performed += OnFireTorpedo;
             fireActionRight.action.Enable();
         }
+        else
+        {
+            Debug.LogWarning("🚨 右コントローラーのfireActionRightが設定されていません！");
+        }
 
-        // ... (左コントローラーの接続コードは省略) ...
+        // 左コントローラーの接続とデバッグ
         if (fireActionLeft != null && fireActionLeft.action != null)
         {
+            Debug.Log("左コントローラーのアクションを設定: " + fireActionLeft.action.name);
             fireActionLeft.action.performed += OnFireTorpedo;
             fireActionLeft.action.Enable();
+        }
+        else
+        {
+            Debug.LogWarning("🚨 左コントローラーのfireActionLeftが設定されていません！");
+        }
+
+        // その他の必要な参照もチェック
+        if (cameraSwitcher == null)
+        {
+            Debug.LogError("🚨 SubmarineCameraControl (cameraSwitcher) が設定されていません！");
+        }
+        
+        if (torpedoPrefab == null)
+        {
+            Debug.LogError("🚨 torpedoPrefabが設定されていません！");
+        }
+        
+        if (firePoint == null)
+        {
+            Debug.LogError("🚨 firePointが設定されていません！");
+        }
+
+        Debug.Log("=== BulletFire 初期化完了 ===");
+    }
+
+    // 🚨 VR実機対応: 代替入力手段としてUpdateでの直接チェック
+    void Update()
+    {
+        // enableDirectControllerInput が true の時のみ実行
+        if (!enableDirectControllerInput) return;
+
+        // XRコントローラーの直接的な入力チェック（Input Actionが動作しない場合の代替手段）
+        if (UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.RightHand).TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out bool rightTrigger) && rightTrigger)
+        {
+            Debug.Log("🎯 右コントローラーのトリガーを直接検出！");
+            TryFireTorpedo("右コントローラー(直接)");
+        }
+        
+        if (UnityEngine.XR.InputDevices.GetDeviceAtXRNode(UnityEngine.XR.XRNode.LeftHand).TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out bool leftTrigger) && leftTrigger)
+        {
+            Debug.Log("🎯 左コントローラーのトリガーを直接検出！");
+            TryFireTorpedo("左コントローラー(直接)");
+        }
+    }
+
+    // 🚨 発射ロジックを共通化したメソッド
+    private void TryFireTorpedo(string inputSource)
+    {
+        // cameraSwitcherの参照チェック
+        if (cameraSwitcher == null)
+        {
+            Debug.LogError("🚨 cameraSwitcher が null です！Inspector で設定してください。");
+            return;
+        }
+        
+        Debug.Log($"{inputSource} からの発射要求 - 現在のカメラ状態 isPeriscopeView: {cameraSwitcher.isPeriscopeView}");
+
+        // 潜望鏡視点の場合のみ、発射を許可
+        if (cameraSwitcher.isPeriscopeView)
+        {
+            Debug.Log($"🎯 {inputSource} から潜望鏡視点で魚雷を発射！");
+
+            if (torpedoPrefab != null && firePoint != null)
+            {
+                Debug.Log("魚雷プレハブと発射ポイントが設定済み - 魚雷生成開始");
+                
+                // 1. 弾の生成 (Instantiate)
+                GameObject torpedo = Instantiate(torpedoPrefab, firePoint.position, firePoint.rotation);
+                Debug.Log($"魚雷を生成: {torpedo.name} 位置: {firePoint.position}");
+
+                // 2. 弾の発射 (AddForce)
+                Rigidbody rb = torpedo.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    Vector3 forceVector = firePoint.forward * fireForce;
+                    rb.AddForce(forceVector, ForceMode.Impulse);
+                    Debug.Log($"魚雷に力を加えました。力のベクトル: {forceVector} 強さ: {fireForce}");
+                }
+                else
+                {
+                    Debug.LogError("🚨 魚雷プレハブにRigidbodyがアタッチされていません！");
+                }
+            }
+            else
+            {
+                Debug.LogError("🚨 torpedoPrefab または firePoint が設定されていません！");
+            }
+        }
+        else
+        {
+            Debug.Log("❌ 潜望鏡視点ではありません。現在の視点では発射できません。");
         }
     }
 
@@ -68,25 +172,19 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
     // どちらのコントローラーのアクションにも接続されるメインのメソッド
     public void OnFireTorpedo(InputAction.CallbackContext context)
     {
-        // 🚨 修正箇所: 潜望鏡視点 (isPeriscopeView == true) の場合のみ、発射を許可する条件を追加 🚨
-        if (context.performed && cameraSwitcher != null && cameraSwitcher.isPeriscopeView)
+        // 🚨 VR実機デバッグ用: 入力受信をログ出力
+        Debug.Log("=== OnFireTorpedo メソッド呼び出し ===");
+        Debug.Log("context.performed: " + context.performed);
+        Debug.Log("入力デバイス: " + context.control.device.name);
+        
+        if (context.performed)
         {
-            Debug.Log("潜望鏡視点から魚雷を発射！");
-
-            // --- 続くUnity班の仕事（球の発射ロジック） ---
-
-            if (torpedoPrefab != null && firePoint != null)
-            {
-                // 1. 弾の生成 (Instantiate)
-                GameObject torpedo = Instantiate(torpedoPrefab, firePoint.position, firePoint.rotation);
-
-                // 2. 弾の発射 (AddForce)
-                Rigidbody rb = torpedo.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.AddForce(firePoint.forward * fireForce, ForceMode.Impulse);
-                }
-            }
+            // 共通の発射メソッドを使用
+            TryFireTorpedo($"Input Action ({context.control.device.name})");
+        }
+        else
+        {
+            Debug.Log("❌ context.performed が false - アクション未実行");
         }
     }
 }

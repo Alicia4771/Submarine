@@ -2655,11 +2655,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletLauncher
   cameraSwitcher: {fileID: 843967730}
-  fireActionRight: {fileID: -3599823989380923159, guid: 0be0028c24f2a4c14a96b6aa39055933, type: 3}
+  fireActionRight: {fileID: -8069514856583376848, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
   fireActionLeft: {fileID: -3599823989380923159, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
   torpedoPrefab: {fileID: 2023642377354847684, guid: 4b4197d57ad9a498f803899609713b21, type: 3}
   firePoint: {fileID: 1159039947}
   fireForce: 50
+  enableDirectControllerInput: 1
 --- !u!114 &843967728
 MonoBehaviour:
   m_ObjectHideFlags: 0
