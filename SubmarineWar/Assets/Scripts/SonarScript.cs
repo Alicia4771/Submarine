@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -14,6 +15,8 @@ public class SonarScript : MonoBehaviour
     private float sonar_radius = 0.5f; // 潜水艦のソナーの半径
     private float sonar_search_radius = 100;
 
+    private float submarine_rotation;
+
     private List<Vector2> displayEnemyShipList;
     private List<Vector2> displayTorpedoList;
 
@@ -25,6 +28,8 @@ public class SonarScript : MonoBehaviour
 
     void Update()
     {
+        submarine_rotation = DataManager.GetSubmarineSpeed();
+
         acc += Time.deltaTime;
         if (acc < sonar_interval) return;
         acc = 0f;
@@ -80,9 +85,17 @@ public class SonarScript : MonoBehaviour
         if (displayList == null) return false;
         if (point == null) return false;
 
+        float sin = Mathf.Sin(submarine_rotation * ((float)Math.PI / 180));
+        float cos = Mathf.Cos(submarine_rotation * ((float)Math.PI / 180));
+
         for (int i = 0; i < displayList.Count; i++)
         {
-            Vector3 position = new Vector3(center_point.x + displayList[i][0], center_point.y + displayList[i][1], center_point.z);
+            float x = displayList[i][0];
+            float y = displayList[i][1];
+            float result_x = x * cos - y * sin;
+            float result_y = x * sin + y * cos;
+
+            Vector3 position = new Vector3(center_point.x + result_x, center_point.y + result_y, center_point.z);
             Instantiate(point, position, Quaternion.identity);
         }
 
