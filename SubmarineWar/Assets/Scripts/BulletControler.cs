@@ -48,7 +48,7 @@ public class BulletControler : MonoBehaviour
         Debug.Log(enemyShips[i]);
       }
       // 弾の消去
-      Destroy(gameObject);
+      // Destroy(gameObject);
     }
     else if (collision.gameObject.CompareTag("SubmarineBody"))
     {
@@ -59,20 +59,20 @@ public class BulletControler : MonoBehaviour
     {
       Debug.Log("壁に衝突しました。");
       // 弾の消去
-      Destroy(gameObject);
+      // Destroy(gameObject);
     }
     // 敵の魚雷に衝突した時
     else if (collision.gameObject.CompareTag("EnemyBullet"))
     {
       Debug.Log("敵魚雷に衝突しました。");
       // 弾の消去
-      Destroy(gameObject);
+      // Destroy(gameObject);
     }// 自分の魚雷に衝突した時
     else if (collision.gameObject.CompareTag("MyBullet"))
     {
       Debug.Log("自分の魚雷に衝突しました。");
       // 弾の消去
-      Destroy(gameObject);
+      // Destroy(gameObject);
     }
     
   }
