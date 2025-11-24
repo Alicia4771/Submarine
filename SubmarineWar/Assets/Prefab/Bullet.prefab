@@ -152,4 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4afa2211f164d30878a9205b6b0822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletControler
-  enemyShipPrefab: {fileID: 1527636721989725583, guid: 920330aad82314352922c987cedcbeb6, type: 3}
+  enemyShipPrefab: {fileID: 156668252386036873, guid: 086f96d50edbd4d04a6d9e2ef6303d21, type: 3}

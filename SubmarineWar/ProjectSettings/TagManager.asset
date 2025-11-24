@@ -9,6 +9,7 @@ TagManager:
   - SonarPoint
   - SubmarineBody
   - EnemyBullet
+  - StageWall
   layers:
   - Default
   - TransparentFX

@@ -55,11 +55,19 @@ public class BulletControler : MonoBehaviour
       Debug.Log("自分の潜水艦にあたっています（問題なし）");
     }
     // 壁に衝突した時
-    else
+    else if (collision.gameObject.CompareTag("StageWall"))
     {
       Debug.Log("壁に衝突しました。");
       // 弾の消去
       Destroy(gameObject);
     }
+    // 敵の魚雷に衝突した時
+    else if (collision.gameObject.CompareTag("EnemyBullet"))
+    {
+      Debug.Log("敵魚雷に衝突しました。");
+      // 弾の消去
+      Destroy(gameObject);
+    }
+    
   }
 }
