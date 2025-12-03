@@ -7,6 +7,10 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
     // ==========================================================
     // 外部連携用の変数（Inspectorで設定）
     // ==========================================================
+    // クールタイム（秒）
+    [Header("Torpedo Cooldown")]
+    public float torpedoCooldown = 1.0f;
+    private float lastFireTime = -999f;
 
     // 💡 修正箇所: SubmarineCameraControl への参照を公開で宣言します
     public SubmarineCameraControl cameraSwitcher;
@@ -71,6 +75,14 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
         // 🚨 修正箇所: 潜望鏡視点 (isPeriscopeView == true) の場合のみ、発射を許可する条件を追加 🚨
         if (context.performed && cameraSwitcher != null && cameraSwitcher.isPeriscopeView)
         {
+            // クールタイム判定
+            float now = Time.time;
+            if (now - lastFireTime < torpedoCooldown)
+            {
+                Debug.Log($"クールタイム中: {torpedoCooldown - (now - lastFireTime):F2}秒残り");
+                return;
+            }
+            lastFireTime = now;
             Debug.Log("潜望鏡視点から魚雷を発射！");
 
             // --- 続くUnity班の仕事（球の発射ロジック） ---
