@@ -7,6 +7,13 @@ public class BulletControler : MonoBehaviour
   public static int enemyShipNumber = 0;
   public GameObject enemyShipPrefab; // 敵船プレハブの用意
 
+  // 敵船出現範囲（直接コードで指定）
+  private float spawnXMin = -200f;
+  private float spawnXMax = 200f;
+  private float spawnZMin = -200f;
+  private float spawnZMax = 200f;
+  private float spawnY = -5f;
+
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
     {
@@ -35,7 +42,9 @@ public class BulletControler : MonoBehaviour
       Destroy(collision.gameObject);
       DataManager.DeleteEnemyShip(enemyName);
       // 新たにEnemyShipオブジェクトを作成
-      Vector3 spawnPosition = new Vector3(0, -5, 0); // 設置する座標
+      float randX = Random.Range(spawnXMin, spawnXMax);
+      float randZ = Random.Range(spawnZMin, spawnZMax);
+      Vector3 spawnPosition = new Vector3(randX, spawnY, randZ); // ランダム座標
       GameObject EnemyShip = Instantiate(enemyShipPrefab, spawnPosition, Quaternion.identity); // プレハブの作成
       enemyShipNumber += 1;
       EnemyShip.name = "EnemyShip_" + enemyShipNumber.ToString(); // 名前の決定
