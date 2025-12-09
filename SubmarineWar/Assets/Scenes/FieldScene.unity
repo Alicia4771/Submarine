@@ -2654,6 +2654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94542f6077de7460a87d643d1e08e603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletLauncher
+  torpedoCooldown: 2
   cameraSwitcher: {fileID: 843967730}
   fireActionRight: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   fireActionLeft: {fileID: 0}
