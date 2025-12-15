@@ -12,12 +12,14 @@ public class SoundSepaker : MonoBehaviour
     public AudioClip backgroundMusic3;   // 背景音楽3 (Sound4-3)
     public AudioClip switchSound;     // 潜望鏡を覗いた時の音 (Sound5)
 
-    private AudioSource audioSource;
+    private AudioSource audioSource1;
+    private AudioSource audioSource2;
 
     void Awake()
     {
         // AudioSourceコンポーネントを取得
-        audioSource = GetComponent<AudioSource>();
+        audioSource1 = gameObject.AddComponent<AudioSource>();
+        audioSource2 = gameObject.AddComponent<AudioSource>();
     }
 
     // --- ここからユーザーが定義したい関数 ---
@@ -26,45 +28,49 @@ public class SoundSepaker : MonoBehaviour
     public void PlayEnemyDestroyed()
     {
         // PlayOneShotは、音が重なっても途切れずに再生されます（爆発音などに最適）
-        audioSource.PlayOneShot(enemyDestroySound);
+        audioSource1.PlayOneShot(enemyDestroySound);
     }
 
     // Sound2: 自分が魚雷を発射した音
     public void PlayTorpedoFire()
     {
-        audioSource.PlayOneShot(torpedoFireSound);
+        audioSource1.PlayOneShot(torpedoFireSound);
     }
 
     // Sound3: 敵船からの攻撃を受けた音
     public void PlayDamaged()
     {
-        audioSource.PlayOneShot(damegedSound);
+        audioSource1.PlayOneShot(damegedSound);
     }
 
     // Sound4-1: 背景音楽の再生
     public void PlayBackgroundMusic1()
     {
-        audioSource.clip = backgroundMusic1;
-        audioSource.loop = true; // ループ再生を有効にする
+        audioSource1.clip = backgroundMusic1;
+        audioSource1.loop = true; // ループ再生を有効にする
+        audioSource1.Play();
     }
 
     // Sound4-2: 背景音楽の再生
     public void PlayBackgroundMusic2()
     {
-        audioSource.clip = backgroundMusic2;
-        audioSource.loop = true; // ループ再生を有効にする
+        audioSource2.clip = backgroundMusic2;
+        audioSource2.loop = true; // ループ再生を有効にする
+        audioSource2.Play();
     }
 
     // Sound4-3: 背景音楽の再生
     public void PlayBackgroundMusic3()
     {
-        audioSource.clip = backgroundMusic3;
-        audioSource.loop = true; // ループ再生を有効にする
+        audioSource1.clip = backgroundMusic3;
+        audioSource1.loop = true; // ループ再生を有効にする
+        audioSource1.Play();
+        audioSource2.Stop(); //backgroundMusic2を停止
     }
 
     // Sound5: 潜望鏡を覗いた時の音
     public void PlaySwitchSound()
     {
-        audioSource.PlayOneShot(switchSound);
+        audioSource1.PlayOneShot(switchSound);
     }
 }
