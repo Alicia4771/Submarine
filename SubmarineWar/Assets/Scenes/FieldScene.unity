@@ -520,6 +520,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5410800360413652856, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
   m_PrefabInstance: {fileID: 1355569976}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &55860432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 55860434}
+  - component: {fileID: 55860433}
+  m_Layer: 0
+  m_Name: SoundSpeaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &55860433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55860432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df038273bbb614c4390c8aba8d10213d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundSepaker
+  enemyDestroySound: {fileID: 8300000, guid: 3ede908cb188d4fb581a63943a9d8709, type: 3}
+  torpedoFireSound: {fileID: 8300000, guid: 00ba78c8c41db42a5865cc16b075e41b, type: 3}
+  damegedSound: {fileID: 8300000, guid: 00ba78c8c41db42a5865cc16b075e41b, type: 3}
+  backgroundMusic1: {fileID: 8300000, guid: 5ce21839c8ae84676b45f1dfc99d2ad4, type: 3}
+  backgroundMusic2: {fileID: 8300000, guid: 726fe68a2fc1549c6be51b2dd44bc56b, type: 3}
+  backgroundMusic3: {fileID: 8300000, guid: 0b4e044030f2b4ce785edd2db1e6966e, type: 3}
+  switchSound: {fileID: 8300000, guid: a1d0feaa987b44170b9fcb95e73a124e, type: 3}
+--- !u!4 &55860434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55860432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.59468, y: -10, z: 4.62312}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &100528457
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +769,7 @@ GameObject:
   - component: {fileID: 177895799}
   - component: {fileID: 177895798}
   - component: {fileID: 177895800}
+  - component: {fileID: 177895801}
   m_Layer: 0
   m_Name: SubmarineCamera
   m_TagString: Untagged
@@ -847,6 +899,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e5d90f87d4b548d2b66127504d86e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraScript
+--- !u!81 &177895801
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177895796}
+  m_Enabled: 1
 --- !u!4 &187572574 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -2661,6 +2721,7 @@ MonoBehaviour:
   torpedoPrefab: {fileID: 2023642377354847684, guid: 4b4197d57ad9a498f803899609713b21, type: 3}
   firePoint: {fileID: 1159039947}
   fireForce: 50
+  soundSpeaker: {fileID: 55860433}
 --- !u!114 &843967728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5388,3 +5449,4 @@ SceneRoots:
   - {fileID: 9237980}
   - {fileID: 2074316644}
   - {fileID: 1288419127}
+  - {fileID: 55860434}

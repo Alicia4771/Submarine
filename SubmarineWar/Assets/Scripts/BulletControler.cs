@@ -14,10 +14,21 @@ public class BulletControler : MonoBehaviour
   private float spawnZMax = 200f;
   private float spawnY = -5f;
 
+  // サウンド用
+  public SoundSpeaker soundSpeaker;
+
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
     {
-        
+      if (soundSpeaker == null)
+        {
+            // Unityのバージョンによってどちらか片方が使えます
+            // 新しいUnity (2023以降):
+            soundSpeaker = FindAnyObjectByType<SoundSpeaker>();
+            
+            // もしエラーが出るなら古い書き方 (2022以前):
+            // soundSpeaker = FindObjectOfType<SoundSpeaker>();
+        }
     }
 
   // Update is called once per frame
@@ -32,6 +43,9 @@ public class BulletControler : MonoBehaviour
     // EnemyShipに衝突した時
     if (collision.gameObject.CompareTag("EnemyShip"))
     {
+      // 魚雷を命中させた音
+      soundSpeaker.PlayEnemyDestroyed();
+      Debug.Log("魚雷を命中させました。音が鳴っているはずです。");
       string enemyName = collision.gameObject.name;
       Debug.Log($"EnemyShipに衝突しました。名前: {enemyName}");
       // スコアを加算
