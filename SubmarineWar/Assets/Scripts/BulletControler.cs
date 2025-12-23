@@ -17,6 +17,9 @@ public class BulletControler : MonoBehaviour
   // サウンド用
   public SoundSpeaker soundSpeaker;
 
+  // 爆発エフェクト
+  public GameObject explosionPrefab; // 爆発エフェクト
+
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
     {
@@ -46,6 +49,18 @@ public class BulletControler : MonoBehaviour
       // 魚雷を命中させた音
       soundSpeaker.PlayEnemyDestroyed();
       Debug.Log("魚雷を命中させました。音が鳴っているはずです。");
+      // 爆発エフェクトの生成
+        if (explosionPrefab != null)
+        {
+            Debug.Log("魚雷エフェクト発生");
+            // 衝突した場所にエフェクトを出す
+            GameObject effect = Instantiate(explosionPrefab, collision.transform.position, Quaternion.identity);
+            // 💡 追加箇所: ここでサイズを大きくする（例：元の5倍にする）
+            effect.transform.localScale = new Vector3(10f, 15f, 10f);
+            
+            // 3秒後に消す（出しっ放し防止）
+            Destroy(effect, 10.0f);
+        }
       string enemyName = collision.gameObject.name;
       Debug.Log($"EnemyShipに衝突しました。名前: {enemyName}");
       // スコアを加算
