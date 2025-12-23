@@ -551,11 +551,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundSepaker
   enemyDestroySound: {fileID: 8300000, guid: 3ede908cb188d4fb581a63943a9d8709, type: 3}
   torpedoFireSound: {fileID: 8300000, guid: 00ba78c8c41db42a5865cc16b075e41b, type: 3}
-  damegedSound: {fileID: 8300000, guid: 00ba78c8c41db42a5865cc16b075e41b, type: 3}
-  backgroundMusic1: {fileID: 8300000, guid: 5ce21839c8ae84676b45f1dfc99d2ad4, type: 3}
+  damegedSound: {fileID: 8300000, guid: 457d3ad802dfb44b7973111c052289ae, type: 3}
+  backgroundMusic1: {fileID: 8300000, guid: 6cfc2dd377f294ba89560f3f5cdeeeca, type: 3}
   backgroundMusic2: {fileID: 8300000, guid: 726fe68a2fc1549c6be51b2dd44bc56b, type: 3}
   backgroundMusic3: {fileID: 8300000, guid: 0b4e044030f2b4ce785edd2db1e6966e, type: 3}
-  switchSound: {fileID: 8300000, guid: a1d0feaa987b44170b9fcb95e73a124e, type: 3}
+  switchSound: {fileID: 8300000, guid: 56e020f1c040e46629d62b8714137395, type: 3}
 --- !u!4 &55860434
 Transform:
   m_ObjectHideFlags: 0
