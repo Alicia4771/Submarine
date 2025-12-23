@@ -73,4 +73,12 @@ public class SoundSpeaker : MonoBehaviour
     {
         audioSource1.PlayOneShot(switchSound);
     }
+    
+    // Add: 制限時間のアラーム
+    public void TimelimitAlarm()
+  {
+        audioSource1.clip = backgroundMusic1;
+        // audioSource1.loop = true; // ループ再生を有効にする
+        audioSource1.Play();
+  }
 }
