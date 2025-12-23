@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SoundSepaker : MonoBehaviour
+public class SoundSpeaker : MonoBehaviour
 {
 
     [Header("音源ファイルの登録")]

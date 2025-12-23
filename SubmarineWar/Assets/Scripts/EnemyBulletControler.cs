@@ -4,13 +4,24 @@ using System.Collections.Generic;
 public class EnemyBulletControler : MonoBehaviour
 {
 
+  // サウンド用
+  public SoundSpeaker soundSpeaker;
+
   // public static int enemyShipNumber = 0;
   // public GameObject enemyShipPrefab; // 敵船プレハブの用意
 
   // Start is called once before the first execution of Update after the MonoBehaviour is created
   void Start()
   {
-
+    if (soundSpeaker == null)
+        {
+            // Unityのバージョンによってどちらか片方が使えます
+            // 新しいUnity (2023以降):
+            soundSpeaker = FindAnyObjectByType<SoundSpeaker>();
+            
+            // もしエラーが出るなら古い書き方 (2022以前):
+            // soundSpeaker = FindObjectOfType<SoundSpeaker>();
+        }
   }
 
   // Update is called once per frame
@@ -24,7 +35,6 @@ public class EnemyBulletControler : MonoBehaviour
   {
     if (other.CompareTag("SubmarineBody"))
     {
-      Debug.Log("敵の攻撃が潜水艦に衝突しました");
       // 残り時間を10秒減らす
       float currentTime = DataManager.GetTimeLimit();
       if (currentTime > 0f)
@@ -50,6 +60,10 @@ public class EnemyBulletControler : MonoBehaviour
     }
     else if (collision.gameObject.CompareTag("SubmarineBody"))
     {
+       // 敵の魚雷の命中音
+      soundSpeaker.PlayDamaged();
+      Debug.Log("魚雷を打ち込まれました。音が鳴っているはずです。");
+      Debug.Log("敵の攻撃が潜水艦に衝突しました");
       Debug.Log("敵の攻撃が潜水艦に衝突しました");
       // 残り時間を10秒減らす
       float currentTime = DataManager.GetTimeLimit();

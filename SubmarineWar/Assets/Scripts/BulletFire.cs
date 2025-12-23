@@ -30,6 +30,9 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
     // 発射時に弾に与える力の強さ (数値で設定)
     public float fireForce = 50f;
 
+    // サウンド用
+    public SoundSpeaker soundSpeaker;
+
 
     // ==========================================================
     // ライフサイクルメソッド: 入力アクションの接続と切断（イベントの購読）
@@ -84,8 +87,12 @@ public class BulletFire : MonoBehaviour // Unityのゲームオブジェクト�
             }
             lastFireTime = now;
             Debug.Log("潜望鏡視点から魚雷を発射！");
+            // 魚雷発射音
+            soundSpeaker.PlayTorpedoFire();
+            Debug.Log("魚雷が発射されました。音が鳴っているはずです。");
 
             // --- 続くUnity班の仕事（球の発射ロジック） ---
+
 
             if (torpedoPrefab != null && firePoint != null)
             {

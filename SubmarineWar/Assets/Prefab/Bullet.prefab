@@ -153,3 +153,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletControler
   enemyShipPrefab: {fileID: 156668252386036873, guid: 086f96d50edbd4d04a6d9e2ef6303d21, type: 3}
+  soundSpeaker: {fileID: 0}
+  explosionPrefab: {fileID: 560014183069458990, guid: 621e45f610d611746802ad828f66b094, type: 3}
