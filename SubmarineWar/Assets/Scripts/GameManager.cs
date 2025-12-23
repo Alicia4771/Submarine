@@ -13,10 +13,26 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private NotificationManager notificationManager;
 
+    // SEを使うための変数
+    public SoundSpeaker soundSpeaker;
+
+    // 30秒の音が鳴り終わったか」を管理するフラグ
+    private bool isTimeWarningPlayed = false;
+
   　// Start is called once before the first execution of Update after the MonoBehaviour is created
   　void Start()
   　{
         Debug.Log("ゲーム開始");
+
+        if (soundSpeaker == null)
+        {
+            // Unityのバージョンによってどちらか片方が使えます
+            // 新しいUnity (2023以降):
+            soundSpeaker = FindAnyObjectByType<SoundSpeaker>();
+            
+            // もしエラーが出るなら古い書き方 (2022以前):
+            // soundSpeaker = FindObjectOfType<SoundSpeaker>();
+        }
         
         if (notificationManager != null)
           {
@@ -69,8 +85,15 @@ public class GameManager : MonoBehaviour
       }
       // Debug.Log("残り時間"+DataManager.GetTimeLimit());
       // 残り時間が0以下ならば、終了シーンに遷移
-      if(DataManager.GetTimeLimit() <= 0)
+      if(DataManager.GetTimeLimit() <= 0 && isTimeWarningPlayed == false)
       {
+        if (soundSpeaker != null)
+          {
+              soundSpeaker.TimelimitAlarm();
+          }
+          // 「もう鳴らした」と記録
+          isTimeWarningPlayed = true;
+          
           Debug.Log("ゲーム終了。シーン遷移を行う。");
           if (sceneLoader != null)
           {
