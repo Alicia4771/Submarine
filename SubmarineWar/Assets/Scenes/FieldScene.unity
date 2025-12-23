@@ -1230,6 +1230,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 55860433}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySwitchSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundSpeaker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6550520782567754322, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1455,6 +1483,34 @@ PrefabInstance:
     - target: {fileID: 7800366708143995674, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
       propertyPath: m_Name
       value: Handle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359255986204672575, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359255986204672575, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359255986204672575, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 55860433}
+    - target: {fileID: 8359255986204672575, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359255986204672575, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySwitchSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359255986204672575, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundSpeaker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8359255986204672575, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8788341735864320017, guid: 3684bc859d2ea43f3bdf8c92a07132ae, type: 3}
       propertyPath: m_UseSpring
@@ -4180,6 +4236,34 @@ PrefabInstance:
     - target: {fileID: 5410800360413652856, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 55860433}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySwitchSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SoundSpeaker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6147963454567504510, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6550520782567754322, guid: 94deb920cc8864091933ff9b02ceb72b, type: 3}
       propertyPath: m_Enabled
