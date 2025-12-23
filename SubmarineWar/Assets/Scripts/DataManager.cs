@@ -12,7 +12,7 @@ public static class DataManager
     private static bool is_periscope_up;   // 潜望鏡が上がっているかどうか
     private static int score;       // 現在のスコア
 
-    private static float timeLimit = 60f; // 残り制限時間(s)
+    private static float timeLimit = 100f; // 残り制限時間(s)
 
     private static float submarine_max_speed = 5;
     private static float submarine_max_depth = -100;
@@ -27,7 +27,7 @@ public static class DataManager
         score = 0;
         enemy_ships_list = new List<string>();
         torpedo_list = new List<string>();
-        timeLimit = 60f;
+        timeLimit = 100f;
         score = 0;
         submarine_speed = 0;
         submarine_depth = 0;
